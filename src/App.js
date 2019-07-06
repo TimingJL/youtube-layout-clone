@@ -1,10 +1,8 @@
 import React from 'react';
 import YoutubeClone from 'containers/YoutubeClone';
 
-function App() {
-  return (
-    <YoutubeClone />
-  );
-}
+const App = () => (
+  <YoutubeClone />
+);
 
 export default App;
