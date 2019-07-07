@@ -10,10 +10,12 @@ const navigationBar = {
 const lightTheme = {
   navbar: {
     color: '#282828',
-    background: '#fff',
+    background: '#ffffff',
     buttonBackground: '#f8f8f8',
     iconColor: '#606060',
-    menuBackgroundColor: '#eee',
+    menuBackgroundColor: '#eeeeee',
+    inputBoxBackgroundColor: '#ffffff',
+    inputBoxBorderColor: '#d3d3d3',
   },
   sidebar: {
     background: '#f5f5f5',
@@ -26,11 +28,13 @@ const lightTheme = {
 
 const darkTheme = {
   navbar: {
-    color: '#fff',
+    color: '#ffffff',
     background: '#282828fa',
     buttonBackground: '#ffffff14',
-    iconColor: '#fff',
-    menuBackgroundColor: '#ddd',
+    iconColor: '#ffffff',
+    menuBackgroundColor: '#dddddd',
+    inputBoxBackgroundColor: '#121212',
+    inputBoxBorderColor: '#303030',
   },
   sidebar: {
     background: '#1c1c1c',
