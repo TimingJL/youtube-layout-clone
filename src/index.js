@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from 'Styled/Settings/colors';
+import { defaultTheme } from 'Styled/Settings/theme';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
