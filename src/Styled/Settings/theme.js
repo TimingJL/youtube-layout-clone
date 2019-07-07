@@ -13,6 +13,7 @@ const lightTheme = {
     background: '#fff',
     buttonBackground: '#f8f8f8',
     iconColor: '#606060',
+    menuBackgroundColor: '#eee',
   },
   sidebar: {
     background: '#f5f5f5',
@@ -29,6 +30,7 @@ const darkTheme = {
     background: '#282828fa',
     buttonBackground: '#ffffff14',
     iconColor: '#fff',
+    menuBackgroundColor: '#ddd',
   },
   sidebar: {
     background: '#1c1c1c',

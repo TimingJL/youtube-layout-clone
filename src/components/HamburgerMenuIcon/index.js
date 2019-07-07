@@ -35,7 +35,7 @@ const Container = styled.div`
   transition: all 0.5s;
   &:active {
     transition: all 0.1s;
-    background: #ffffff50;
+    background: ${(props) => `${props.theme[props.themeType].navbar.menuBackgroundColor}`}
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -43,10 +43,14 @@ const Container = styled.div`
       content: '';
       position: absolute;
       border-radius: 100%;
-      background: white;
-      animation: ${bubbleAnimation} 0.25s ease-out;
+      background: #777;
+      animation: ${bubbleAnimation} 0.3s ease-out;
       animation-fill-mode: forwards;
     }
+  }
+
+  .hamburger-menu-icon__bars {
+    z-index: 1;
   }
 `;
 
@@ -54,7 +58,7 @@ const HamburgerMenuIcon = ({
   themeType,
 }) => (
   <Container themeType={themeType}>
-    <i className="fas fa-bars" />
+    <i className="fas fa-bars hamburger-menu-icon__bars" />
   </Container>
 );
 
