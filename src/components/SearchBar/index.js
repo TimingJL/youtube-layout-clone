@@ -17,6 +17,12 @@ const SearchBarContainer = styled.div`
     align-items: center;
     justify-content: center;
     border: 1px solid ${(props) => props.theme[props.themeType].navbar.inputBoxBorderColor};
+    border-radius: 0px 2px 2px 0px;
+    cursor: pointer;
+    &:hover {
+      background: ${(props) => props.theme[props.themeType].navbar.buttonHoverBackground};
+      color: ${(props) => props.theme[props.themeType].navbar.color};
+    }
   }
   .search-bar__search-input-box-wrapper {
     display: flex;
@@ -28,6 +34,8 @@ const SearchBarContainer = styled.div`
     max-width: 575px;
     border: 1px solid ${(props) => props.theme[props.themeType].navbar.inputBoxBorderColor};
     border-right: none;
+    border-radius: 2px 0px 0px 2px;
+    box-shadow: inset 0px 4px 8px -3px rgba(17, 17, 17, .06);
   }
   .search-bar__search-input-box {
     border: none;

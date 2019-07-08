@@ -19,7 +19,7 @@ const Container = styled.div`
 const YoutubeLogo = () => (
   <Container>
     <img alt="" src={URL_LOGO} className="youtube-logo__image" />
-    <div title="Taiming Tube">TaiTube</div>
+    <div title="Taiming Tube">MeTube</div>
   </Container>
 );
 

@@ -7,10 +7,17 @@ import HamburgerMenuIcon from 'components/HamburgerMenuIcon';
 import YoutubeLogo from 'components/YoutubeLogo';
 import SearchBar from 'components/SearchBar';
 
-// Context
 import {
   YoutubeCloneContext,
 } from 'containers/YoutubeClone/Context';
+
+import Avatar from './Avatar';
+import Notification from './Notification';
+import Message from './Message';
+import FunctionMenu from './FunctionMenu';
+import UploadLive from './UploadLive';
+
+// Context
 
 const NavigationBarContainer = styled.div`
   display: flex;
@@ -32,7 +39,11 @@ const NavigationBar = () => {
       <HamburgerMenuIcon themeType={themeType} />
       <YoutubeLogo />
       <SearchBar themeType={themeType} />
-      <div>123123123123</div>
+      <UploadLive themeType={themeType} />
+      <FunctionMenu themeType={themeType} />
+      <Message themeType={themeType} />
+      <Notification themeType={themeType} />
+      <Avatar />
     </NavigationBarContainer>
   );
 };

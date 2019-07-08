@@ -35,7 +35,7 @@ const Container = styled.div`
   transition: all 0.5s;
   &:active {
     transition: all 0.1s;
-    background: ${(props) => `${props.theme[props.themeType].navbar.menuBackgroundColor}`}
+    background: ${(props) => `${props.theme[props.themeType].navbar.menuBackgroundColor}`};
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -51,6 +51,7 @@ const Container = styled.div`
 
   .hamburger-menu-icon__bars {
     z-index: 1;
+    color: ${(props) => props.theme[props.themeType].navbar.iconColor};
   }
 `;
 
