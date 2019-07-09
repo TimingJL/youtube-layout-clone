@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  IconButton,
-} from '../Styled';
+import { NavIconButton } from 'components/NavIconButton';
 
 const UploadLive = ({
   themeType,
 }) => (
-  <IconButton themeType={themeType}>
+  <NavIconButton themeType={themeType}>
     <i className="fas fa-video" />
-  </IconButton>
+  </NavIconButton>
 );
 
 UploadLive.propTypes = {

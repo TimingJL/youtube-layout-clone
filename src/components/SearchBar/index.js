@@ -1,6 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { down, up, only } from 'components/BreakPoints';
+import { NavIconButton } from 'components/NavIconButton';
+import {
+  BREAK_POINT_SM,
+} from 'Styled/Settings/constants';
+
+
+const SearchBarIcon = styled(NavIconButton)`
+  ${up(BREAK_POINT_SM)} {
+    display: none;
+  }
+  ${only(BREAK_POINT_SM)} {
+    display: flex;
+  }
+`;
 
 const SearchBarContainer = styled.div`
   margin: 0px 40px;
@@ -48,19 +63,28 @@ const SearchBarContainer = styled.div`
   .search-bar__search-icon {
     color: ${(props) => `${props.theme[props.themeType].navbar.iconColor}80`};
   }
+
+  ${down(BREAK_POINT_SM)} {
+    display: none;
+  }
 `;
 
 const SearchBar = ({
   themeType,
 }) => (
-  <SearchBarContainer themeType={themeType}>
-    <div className="search-bar__search-input-box-wrapper">
-      <input placeholder="搜尋" className="search-bar__search-input-box" />
-    </div>
-    <div className="search-bar__button-wrapper">
-      <i className="fas fa-search search-bar__search-icon" />
-    </div>
-  </SearchBarContainer>
+  <>
+    <SearchBarContainer themeType={themeType}>
+      <div className="search-bar__search-input-box-wrapper">
+        <input placeholder="搜尋" className="search-bar__search-input-box" />
+      </div>
+      <div className="search-bar__button-wrapper">
+        <i className="fas fa-search search-bar__search-icon" />
+      </div>
+    </SearchBarContainer>
+    <SearchBarIcon themeType={themeType}>
+      <i className="fas fa-search" />
+    </SearchBarIcon>
+  </>
 );
 
 SearchBar.propTypes = {
