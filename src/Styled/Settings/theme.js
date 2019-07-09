@@ -3,20 +3,8 @@ import {
   HEIGHT_NAVIGATION_BAR,
 
   // break point
-  // BREAK_POINT_XS,
-  BREAK_POINT_SM,
-  // BREAK_POINT_MD,
-  // BREAK_POINT_LG,
-  BREAK_POINT_XL,
+  breakpoints,
 } from './constants';
-
-const breakpoints = {
-  [BREAK_POINT_SM]: '657px',
-  // [BREAK_POINT_SM]: '576px',
-  // [BREAK_POINT_MD]: '768px',
-  // [BREAK_POINT_LG]: '992px',
-  [BREAK_POINT_XL]: '1200px',
-};
 
 const navigationBar = {
   height: HEIGHT_NAVIGATION_BAR,

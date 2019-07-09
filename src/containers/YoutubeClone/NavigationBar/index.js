@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 // Packages
-import React, { useContext } from 'react';
+import React, { useContext, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -14,13 +15,18 @@ import {
 import { down } from 'components/BreakPoints';
 import {
   BREAK_POINT_SM,
+  breakpoints,
 } from 'Styled/Settings/constants';
+import {
+  getBreakPointValue,
+} from 'Styled/Settings/utils';
 
 import Avatar from './Avatar';
 import Notification from './Notification';
 import Message from './Message';
 import FunctionMenu from './FunctionMenu';
 import UploadLive from './UploadLive';
+import NavSearchBar from './NavSearchBar';
 
 const HamburgerMenuIconContainer = styled.div`
   margin-right: 16px;
@@ -32,30 +38,60 @@ const HamburgerMenuIconContainer = styled.div`
 const NavigationBarContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 0px 16px;
   height: ${(props) => `${props.theme.navigationBar.height}px;`};
   color: ${(props) => props.theme[props.themeType].navbar.color};
   background: ${(props) => props.theme[props.themeType].navbar.background};
   box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
 `;
 
+const NavigationMenuWrapper = styled.div`
+  padding: 0px 16px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
 
 const NavigationBar = () => {
   const {
     themeType,
+    isNavSearchBar,
+    setIsNavSearchBar,
   } = useContext(YoutubeCloneContext);
+  const breakValue = getBreakPointValue(BREAK_POINT_SM, breakpoints);
+  const handleOnResize = useCallback(() => {
+    const windowWidth = document.documentElement.clientWidth;
+    if (windowWidth > breakValue) {
+      setIsNavSearchBar(false);
+    }
+  }, []);
+  const handleSetIsNavSearchBar = useCallback(() => {
+    setIsNavSearchBar((prev) => !prev);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleOnResize);
+    return () => {
+      window.removeEventListener('resize', handleOnResize);
+    };
+  }, []);
   return (
     <NavigationBarContainer themeType={themeType}>
-      <HamburgerMenuIconContainer>
-        <HamburgerMenuIcon themeType={themeType} />
-      </HamburgerMenuIconContainer>
-      <YoutubeLogo />
-      <SearchBar themeType={themeType} />
-      <UploadLive themeType={themeType} />
-      <FunctionMenu themeType={themeType} />
-      <Message themeType={themeType} />
-      <Notification themeType={themeType} />
-      <Avatar />
+      {
+        isNavSearchBar ?
+          <NavSearchBar themeType={themeType} handleSetIsNavSearchBar={handleSetIsNavSearchBar} /> :
+          <NavigationMenuWrapper>
+            <HamburgerMenuIconContainer>
+              <HamburgerMenuIcon themeType={themeType} />
+            </HamburgerMenuIconContainer>
+            <YoutubeLogo />
+            <SearchBar themeType={themeType} handleSetIsNavSearchBar={handleSetIsNavSearchBar} />
+            <UploadLive themeType={themeType} />
+            <FunctionMenu themeType={themeType} />
+            <Message themeType={themeType} />
+            <Notification themeType={themeType} />
+            <Avatar />
+          </NavigationMenuWrapper>
+      }
     </NavigationBarContainer>
   );
 };

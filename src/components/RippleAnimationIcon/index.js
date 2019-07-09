@@ -23,6 +23,15 @@ export const RippleAnimationIcon = styled.div`
     opacity: 0;
     transition: transform .3s, opacity 1s ease-in-out;
   }
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    background: ${(props) => props.theme[props.themeType].navbar.menuBackgroundColor};
+    border-radius: 100%;
+  }
 
   &:active:after {
     transform: scale(0);
@@ -33,5 +42,12 @@ export const RippleAnimationIcon = styled.div`
   &:active {
     transform: scale(.9);
     transition: 0.07s;
+    &:before {
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      border-radius: 100%;
+      transition: all 0.2s;
+    }
   }
 `;
