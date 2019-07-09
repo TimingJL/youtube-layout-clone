@@ -11,6 +11,11 @@ import {
   YoutubeCloneContext,
 } from 'containers/YoutubeClone/Context';
 
+import { down } from 'components/BreakPoints';
+import {
+  BREAK_POINT_SM,
+} from 'Styled/Settings/constants';
+
 import Avatar from './Avatar';
 import Notification from './Notification';
 import Message from './Message';
@@ -19,6 +24,9 @@ import UploadLive from './UploadLive';
 
 const HamburgerMenuIconContainer = styled.div`
   margin-right: 16px;
+  ${down(BREAK_POINT_SM)} {
+    margin-right: 0px;
+  }
 `;
 
 const NavigationBarContainer = styled.div`
