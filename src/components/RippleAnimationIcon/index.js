@@ -21,7 +21,7 @@ export const RippleAnimationIcon = styled.div`
     background-position: 50%;
     transform: scale(10);
     opacity: 0;
-    transition: transform .5s, opacity 1s ease-in-out;
+    transition: transform .3s, opacity 1s ease-in-out;
   }
 
   &:active:after {
@@ -32,7 +32,6 @@ export const RippleAnimationIcon = styled.div`
 
   &:active {
     transform: scale(.9);
-    background: ${(props) => `${props.theme[props.themeType] ? props.theme[props.themeType].navbar.menuBackgroundColor : '#000'}20`};
     transition: 0.07s;
   }
 `;
