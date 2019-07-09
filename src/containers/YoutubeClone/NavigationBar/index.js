@@ -17,7 +17,9 @@ import Message from './Message';
 import FunctionMenu from './FunctionMenu';
 import UploadLive from './UploadLive';
 
-// Context
+const HamburgerMenuIconContainer = styled.div`
+  margin-right: 16px;
+`;
 
 const NavigationBarContainer = styled.div`
   display: flex;
@@ -36,7 +38,9 @@ const NavigationBar = () => {
   } = useContext(YoutubeCloneContext);
   return (
     <NavigationBarContainer themeType={themeType}>
-      <HamburgerMenuIcon themeType={themeType} />
+      <HamburgerMenuIconContainer>
+        <HamburgerMenuIcon themeType={themeType} />
+      </HamburgerMenuIconContainer>
       <YoutubeLogo />
       <SearchBar themeType={themeType} />
       <UploadLive themeType={themeType} />
