@@ -1,3 +1,4 @@
+// https://codepen.io/hiyangguo/pen/BpRRrz
 import styled from 'styled-components';
 
 export const RippleAnimationIcon = styled.div`
@@ -27,8 +28,9 @@ export const RippleAnimationIcon = styled.div`
     content: "";
     display: block;
     position: absolute;
-    width: 0%;
-    height: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
     background: ${(props) => props.theme[props.themeType].navbar.menuBackgroundColor};
     border-radius: 100%;
   }
