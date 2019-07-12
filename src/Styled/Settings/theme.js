@@ -21,6 +21,14 @@ const lightTheme = {
     inputBoxBackgroundColor: '#ffffff',
     inputBoxBorderColor: '#d3d3d3',
   },
+  dropdown: {
+    background: '#ffffff',
+    headerBackground: '#eeeeee',
+    color: '#3f3f3f',
+    iconColor: '#a2a2a2',
+    dateColor: '#606060',
+    itemHoverBackground: '#e8e8e8',
+  },
   sidebar: {
     background: '#f5f5f5',
     iconColor: '#909090',
@@ -40,6 +48,14 @@ const darkTheme = {
     menuBackgroundColor: '#ffffff',
     inputBoxBackgroundColor: '#121212',
     inputBoxBorderColor: '#303030',
+  },
+  dropdown: {
+    background: '#252525',
+    headerBackground: '#4f4e50',
+    color: '#ffffff',
+    dateColor: '#aaaaaa',
+    iconColor: '#909090',
+    itemHoverBackground: '#403f40',
   },
   sidebar: {
     background: '#1c1c1c',

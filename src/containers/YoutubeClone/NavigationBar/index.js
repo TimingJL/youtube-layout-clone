@@ -63,10 +63,10 @@ const NavigationBar = () => {
     if (windowWidth > breakValue) {
       setIsNavSearchBar(false);
     }
-  }, []);
+  }, [breakValue, setIsNavSearchBar]);
   const handleSetIsNavSearchBar = useCallback(() => {
     setIsNavSearchBar((prev) => !prev);
-  }, []);
+  }, [setIsNavSearchBar]);
 
   useEffect(() => {
     window.addEventListener('resize', handleOnResize);
