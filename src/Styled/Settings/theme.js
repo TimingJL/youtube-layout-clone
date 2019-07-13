@@ -28,6 +28,7 @@ const lightTheme = {
     iconColor: '#a2a2a2',
     dateColor: '#606060',
     itemHoverBackground: '#e8e8e8',
+    borderColor: '#e8e8e8',
   },
   sidebar: {
     background: '#f5f5f5',
@@ -56,6 +57,7 @@ const darkTheme = {
     dateColor: '#aaaaaa',
     iconColor: '#909090',
     itemHoverBackground: '#403f40',
+    borderColor: '#424242',
   },
   sidebar: {
     background: '#1c1c1c',

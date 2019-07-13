@@ -89,7 +89,7 @@ const NavigationBar = () => {
             <FunctionMenu themeType={themeType} />
             <Message themeType={themeType} />
             <Notification themeType={themeType} />
-            <Avatar />
+            <Avatar themeType={themeType} />
           </NavigationMenuWrapper>
       }
     </NavigationBarContainer>

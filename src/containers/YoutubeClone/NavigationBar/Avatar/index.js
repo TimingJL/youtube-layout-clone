@@ -1,7 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Dropdown from 'components/Dropdown';
+import { AVATAR_URL } from 'containers/YoutubeClone/NavigationBar/constants';
+import MenuContent from './MenuContent';
 
-const AVATAR_URL = 'https://avatars0.githubusercontent.com/u/5562039?s=460&v=4';
+const customStyle = {
+  right: '0px',
+  width: '300px',
+  height: '642px',
+};
 
 const AvatarWrapper = styled.div`
   width: 60px;
@@ -16,10 +24,25 @@ const AvatarWrapper = styled.div`
   }
 `;
 
-const Avatar = () => (
-  <AvatarWrapper>
-    <img className="avatar__image" src={AVATAR_URL} alt="" />
-  </AvatarWrapper>
+const Avatar = ({
+  themeType,
+}) => (
+  <Dropdown
+    menu={<MenuContent themeType={themeType} />}
+    customStyle={customStyle}
+  >
+    <AvatarWrapper>
+      <img className="avatar__image" src={AVATAR_URL} alt="" />
+    </AvatarWrapper>
+  </Dropdown>
 );
+
+Avatar.propTypes = {
+  themeType: PropTypes.string,
+};
+
+Avatar.defaultProps = {
+  themeType: 'lightTheme',
+};
 
 export default Avatar;
