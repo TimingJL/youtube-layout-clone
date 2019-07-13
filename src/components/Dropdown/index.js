@@ -40,7 +40,7 @@ const Dropdown = ({
     if (findAttributeInEvent(event, 'data-component') !== dataComponent) {
       setIsVisible(false);
     }
-  }, []);
+  }, [dataComponent]);
   useEffect(() => {
     document.addEventListener('click', handleOnClickOutside);
     return () => {

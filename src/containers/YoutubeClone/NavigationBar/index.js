@@ -73,7 +73,7 @@ const NavigationBar = () => {
     return () => {
       window.removeEventListener('resize', handleOnResize);
     };
-  }, []);
+  });
   return (
     <NavigationBarContainer themeType={themeType}>
       {
