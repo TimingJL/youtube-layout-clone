@@ -22,7 +22,7 @@ const themeSwitchIconAnimation = keyframes`
   }
 `;
 
-const setOptionStyle = (optionId, themeType) => (optionId === themeType ? 'active' : '');
+const setOptionStyle = (optionId, themeType) => (optionId === themeType ? ' active' : '');
 
 const MenuContentContainer = styled.div`
   .menu-content__profile-wrapper {
@@ -128,10 +128,10 @@ const MenuContent = ({
               role="presentation"
               key={option.id}
               data-theme-option={option.id}
-              className={`menu-content__theme-switch-item option ${setOptionStyle(option.id, themeType)}`}
+              className={`menu-content__theme-switch-item option${setOptionStyle(option.id, themeType)}`}
               onClick={handleOnThemeClick}
             >
-              <i className={`fas fa-check menu-content__theme-switch-icon option ${setOptionStyle(option.id, themeType)}`} />
+              <i className={`fas fa-check menu-content__theme-switch-icon option${setOptionStyle(option.id, themeType)}`} />
               <div className="menu-content__theme-switch-title">{option.name}</div>
             </div>
           ))
