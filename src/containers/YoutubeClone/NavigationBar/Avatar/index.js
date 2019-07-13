@@ -22,6 +22,11 @@ const AvatarWrapper = styled.div`
     border-radius: 100%;
     cursor: pointer;
   }
+  &:active {
+    .avatar__image {
+      border: 1px solid ${(props) => `${props.theme[props.themeType].navbar.iconColor}d0`};
+    }
+  }
 `;
 
 const Avatar = ({
@@ -32,7 +37,7 @@ const Avatar = ({
     menu={<MenuContent themeType={themeType} />}
     customStyle={customStyle}
   >
-    <AvatarWrapper>
+    <AvatarWrapper themeType={themeType}>
       <img className="avatar__image" src={AVATAR_URL} alt="" />
     </AvatarWrapper>
   </Dropdown>
