@@ -28,6 +28,7 @@ const Avatar = ({
   themeType,
 }) => (
   <Dropdown
+    id="Avatar"
     menu={<MenuContent themeType={themeType} />}
     customStyle={customStyle}
   >

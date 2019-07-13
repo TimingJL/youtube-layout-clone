@@ -23,6 +23,7 @@ const DropdownContainer = styled.div`
 `;
 
 const Dropdown = ({
+  id,
   menu,
   children,
   customStyle,
@@ -31,12 +32,12 @@ const Dropdown = ({
     themeType,
   } = useContext(YoutubeCloneContext);
   const [isVisible, setIsVisible] = useState(false);
+  const dataComponent = `${id}-${DATA_COMPONENT}`;
   const handleOnContentClick = useCallback(() => {
     setIsVisible((prev) => !prev);
   }, []);
   const handleOnClickOutside = useCallback((event) => {
-    const dataComponent = findAttributeInEvent(event, 'data-component');
-    if (!dataComponent) {
+    if (findAttributeInEvent(event, 'data-component') !== dataComponent) {
       setIsVisible(false);
     }
   }, []);
@@ -48,7 +49,7 @@ const Dropdown = ({
   }, [handleOnClickOutside]);
 
   return (
-    <DropdownContainer data-component={DATA_COMPONENT}>
+    <DropdownContainer data-component={`${id}-${DATA_COMPONENT}`}>
       <div role="presentation" onClick={handleOnContentClick}>
         {children}
       </div>
@@ -60,12 +61,14 @@ const Dropdown = ({
 };
 
 Dropdown.propTypes = {
+  id: PropTypes.string,
   menu: PropTypes.element,
   children: PropTypes.element,
   customStyle: PropTypes.object,
 };
 
 Dropdown.defaultProps = {
+  id: '',
   menu: null,
   children: null,
   customStyle: {},

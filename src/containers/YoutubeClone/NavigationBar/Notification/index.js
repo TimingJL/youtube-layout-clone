@@ -14,6 +14,7 @@ const Notification = ({
   themeType,
 }) => (
   <Dropdown
+    id="Notification"
     menu={<MenuContent themeType={themeType} />}
     customStyle={customStyle}
   >
