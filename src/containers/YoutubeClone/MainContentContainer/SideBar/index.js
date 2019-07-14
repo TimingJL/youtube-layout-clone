@@ -49,11 +49,8 @@ const SideBar = () => {
       if (!isShowLargeMenu) {
         setIsShowLargeMenu(true);
       }
-    }
-    if (windowWidth < breakValue) {
-      if (isShowLargeMenu) {
-        setIsShowLargeMenu(false);
-      }
+    } else if (isShowLargeMenu) {
+      setIsShowLargeMenu(false);
     }
   }, [breakValue, isShowLargeMenu, setIsShowLargeMenu]);
 
