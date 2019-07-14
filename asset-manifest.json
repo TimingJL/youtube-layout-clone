@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/youtube-layout-clone/static/css/main.34de6062.chunk.css",
-    "main.js": "/youtube-layout-clone/static/js/main.c914f1f5.chunk.js",
-    "main.js.map": "/youtube-layout-clone/static/js/main.c914f1f5.chunk.js.map",
+    "main.js": "/youtube-layout-clone/static/js/main.89d196b9.chunk.js",
+    "main.js.map": "/youtube-layout-clone/static/js/main.89d196b9.chunk.js.map",
     "runtime~main.js": "/youtube-layout-clone/static/js/runtime~main.1e3e8848.js",
     "runtime~main.js.map": "/youtube-layout-clone/static/js/runtime~main.1e3e8848.js.map",
-    "static/js/2.9d8aacbd.chunk.js": "/youtube-layout-clone/static/js/2.9d8aacbd.chunk.js",
-    "static/js/2.9d8aacbd.chunk.js.map": "/youtube-layout-clone/static/js/2.9d8aacbd.chunk.js.map",
+    "static/js/2.bc0e6a9a.chunk.js": "/youtube-layout-clone/static/js/2.bc0e6a9a.chunk.js",
+    "static/js/2.bc0e6a9a.chunk.js.map": "/youtube-layout-clone/static/js/2.bc0e6a9a.chunk.js.map",
     "index.html": "/youtube-layout-clone/index.html",
-    "precache-manifest.89c7d5b67f9ed7a108d2812e3676e62f.js": "/youtube-layout-clone/precache-manifest.89c7d5b67f9ed7a108d2812e3676e62f.js",
+    "precache-manifest.147c1e81ebb296725f7e248bdcc6fdc1.js": "/youtube-layout-clone/precache-manifest.147c1e81ebb296725f7e248bdcc6fdc1.js",
     "service-worker.js": "/youtube-layout-clone/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/youtube-layout-clone/static/css/main.34de6062.chunk.css.map"
   }
