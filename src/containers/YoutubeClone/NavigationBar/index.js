@@ -17,6 +17,7 @@ import {
   BREAK_POINT_SM,
   breakpoints,
 } from 'Styled/Settings/constants';
+import zIndices from 'Styled/Settings/zIndices';
 import {
   getBreakPointValue,
 } from 'Styled/Settings/utils';
@@ -36,6 +37,7 @@ const HamburgerMenuIconContainer = styled.div`
 `;
 
 const NavigationBarContainer = styled.div`
+  z-index: ${zIndices.Z_NAV_BAR};
   display: flex;
   align-items: center;
   height: ${(props) => `${props.theme.navigationBar.height}px;`};

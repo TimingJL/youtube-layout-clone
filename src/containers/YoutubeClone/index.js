@@ -17,6 +17,10 @@ const {
 } = YoutubeCloneContext;
 
 const YoutubeCloneContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   max-height: 100vh;
 `;

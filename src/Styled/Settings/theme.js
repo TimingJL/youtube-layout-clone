@@ -35,6 +35,7 @@ const lightTheme = {
     iconColor: '#909090',
   },
   mainContent: {
+    color: '#282828',
     background: '#fafafa',
   },
 };
@@ -64,6 +65,7 @@ const darkTheme = {
     iconColor: '#909090',
   },
   mainContent: {
+    color: '#ffffff',
     background: '#121212',
   },
 };

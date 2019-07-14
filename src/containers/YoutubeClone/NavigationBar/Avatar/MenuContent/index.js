@@ -66,6 +66,7 @@ const MenuContentContainer = styled.div`
     color: ${(props) => props.theme[props.themeType].dropdown.iconColor};
     &.subject {
       color: ${(props) => props.theme[props.themeType].dropdown.iconColor};
+      font-weight: 600;
     }
     &.option {
       cursor: pointer;
