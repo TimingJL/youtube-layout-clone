@@ -2,6 +2,8 @@
 import React, { useCallback, useContext } from 'react';
 import styled from 'styled-components';
 
+import FloatSideBar from 'components/FloatSideBar';
+
 import {
   YoutubeCloneContext,
 } from 'containers/YoutubeClone/Context';
@@ -41,6 +43,8 @@ const SideBar = () => {
     themeType,
     isShowLargeMenu,
     setIsShowLargeMenu,
+    isShowFloatSideMenu,
+    setIsShowFloatSideMenu,
   } = useContext(YoutubeCloneContext);
   const breakValue = getBreakPointValue(BREAK_POINT_XL, breakpoints);
   const handleOnResize = useCallback(() => {
@@ -63,6 +67,11 @@ const SideBar = () => {
   });
   return (
     <>
+      <FloatSideBar
+        themeType={themeType}
+        isShowFloatSideMenu={isShowFloatSideMenu}
+        setIsShowFloatSideMenu={setIsShowFloatSideMenu}
+      />
       {
         isShowLargeMenu ?
           <LargeSideBarContainer themeType={themeType}>

@@ -58,6 +58,7 @@ const NavigationBar = () => {
     themeType,
     isNavSearchBar,
     setIsNavSearchBar,
+    setIsShowFloatSideMenu,
   } = useContext(YoutubeCloneContext);
   const breakValue = getBreakPointValue(BREAK_POINT_SM, breakpoints);
   const handleOnResize = useCallback(() => {
@@ -69,6 +70,9 @@ const NavigationBar = () => {
   const handleSetIsNavSearchBar = useCallback(() => {
     setIsNavSearchBar((prev) => !prev);
   }, [setIsNavSearchBar]);
+  const handleShowFloatSideBar = useCallback(() => {
+    setIsShowFloatSideMenu(true);
+  }, [setIsShowFloatSideMenu]);
 
   useEffect(() => {
     window.addEventListener('resize', handleOnResize);
@@ -82,7 +86,7 @@ const NavigationBar = () => {
         isNavSearchBar ?
           <NavSearchBar themeType={themeType} handleSetIsNavSearchBar={handleSetIsNavSearchBar} /> :
           <NavigationMenuWrapper>
-            <HamburgerMenuIconContainer>
+            <HamburgerMenuIconContainer onClick={handleShowFloatSideBar}>
               <HamburgerMenuIcon themeType={themeType} />
             </HamburgerMenuIconContainer>
             <YoutubeLogo />

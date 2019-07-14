@@ -6,6 +6,7 @@ export const useYoutubeCloneState = () => {
   const [themeType, setThemeType] = useState('lightTheme');
   const [isNavSearchBar, setIsNavSearchBar] = useState(false);
   const [isShowLargeMenu, setIsShowLargeMenu] = useState(false);
+  const [isShowFloatSideMenu, setIsShowFloatSideMenu] = useState(false);
   return {
     themeType,
     setThemeType,
@@ -13,5 +14,7 @@ export const useYoutubeCloneState = () => {
     setIsNavSearchBar,
     isShowLargeMenu,
     setIsShowLargeMenu,
+    isShowFloatSideMenu,
+    setIsShowFloatSideMenu,
   };
 };
