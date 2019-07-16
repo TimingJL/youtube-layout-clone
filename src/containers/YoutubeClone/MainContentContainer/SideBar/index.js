@@ -47,8 +47,6 @@ const SideBar = () => {
     setIsExtendMenu,
     isExtendFloatMenu,
     setIsExtendFloatMenu,
-    isUsingLargeSideMenu,
-    setIsUsingLargeSideMenu,
   } = useContext(YoutubeCloneContext);
   const breakValue = getBreakPointValue(BREAK_POINT_XL, breakpoints);
   const handleOnResize = useCallback(() => {
@@ -56,18 +54,15 @@ const SideBar = () => {
     if (windowWidth >= breakValue) {
       setIsUsingFloatSideMenu(false);
       setIsExtendFloatMenu(false);
-      setIsUsingLargeSideMenu(true);
       return;
     }
     setIsUsingFloatSideMenu(true);
-    setIsUsingLargeSideMenu(false);
   }, [breakValue, setIsUsingFloatSideMenu]);
 
   useInitSidebarSize({
     breakValue,
     setIsUsingFloatSideMenu,
     setIsExtendMenu,
-    setIsUsingLargeSideMenu,
   });
   useListenWindowResize({
     handleOnResize,
@@ -84,7 +79,7 @@ const SideBar = () => {
         />
       }
       {
-        (isUsingLargeSideMenu && isExtendMenu) ?
+        (!isUsingFloatSideMenu && isExtendMenu) ?
           <LargeSideBarContainer themeType={themeType}>
             LargeSideBar
           </LargeSideBarContainer> :

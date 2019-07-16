@@ -5,19 +5,16 @@ export const useInitSidebarSize = ({
   breakValue,
   setIsUsingFloatSideMenu,
   setIsExtendMenu,
-  setIsUsingLargeSideMenu,
 }) => {
   useEffect(() => {
     const windowWidth = document.documentElement.clientWidth;
     if (windowWidth > breakValue) {
       setIsUsingFloatSideMenu(false);
       setIsExtendMenu(true);
-      setIsUsingLargeSideMenu(true);
       return;
     }
     setIsUsingFloatSideMenu(true);
     setIsExtendMenu(false);
-    setIsUsingLargeSideMenu(false);
   }, [breakValue]);
 };
 

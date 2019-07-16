@@ -8,7 +8,6 @@ export const useYoutubeCloneState = () => {
   const [isExtendMenu, setIsExtendMenu] = useState(false);
   const [isExtendFloatMenu, setIsExtendFloatMenu] = useState(false);
   const [isUsingFloatSideMenu, setIsUsingFloatSideMenu] = useState(false);
-  const [isUsingLargeSideMenu, setIsUsingLargeSideMenu] = useState(false);
   return {
     themeType,
     setThemeType,
@@ -20,7 +19,5 @@ export const useYoutubeCloneState = () => {
     setIsExtendMenu,
     isExtendFloatMenu,
     setIsExtendFloatMenu,
-    isUsingLargeSideMenu,
-    setIsUsingLargeSideMenu,
   };
 };
