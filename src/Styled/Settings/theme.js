@@ -31,8 +31,11 @@ const lightTheme = {
     borderColor: '#e8e8e8',
   },
   sidebar: {
+    color: '#606060',
     background: '#f5f5f5',
     iconColor: '#909090',
+    iconActiveColor: '#2f9ae6',
+    iconBackgroundHover: '#00000015',
   },
   mainContent: {
     color: '#282828',
@@ -61,8 +64,11 @@ const darkTheme = {
     borderColor: '#424242',
   },
   sidebar: {
+    color: '#aaaaaa',
     background: '#1c1c1c',
     iconColor: '#909090',
+    iconActiveColor: '#ffffff',
+    iconBackgroundHover: '#ffffff15',
   },
   mainContent: {
     color: '#ffffff',

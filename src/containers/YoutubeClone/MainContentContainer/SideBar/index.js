@@ -20,14 +20,19 @@ import {
   useInitSidebarSize,
   useListenWindowResize,
 } from './customHooks';
+import NarrowSideBarMenu from './NarrowSideBarMenu';
 
 
 const SideBarContainer = styled.div`
+  padding: 5px 0px;
   width: 72px;
   background: ${(props) => props.theme[props.themeType].sidebar.background};
   ${down(BREAK_POINT_LG)} {
     display: none;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const LargeSideBarContainer = styled.div`
@@ -84,7 +89,7 @@ const SideBar = () => {
             LargeSideBar
           </LargeSideBarContainer> :
           <SideBarContainer themeType={themeType}>
-            SideBar
+            <NarrowSideBarMenu themeType={themeType} />
           </SideBarContainer>
       }
     </>
