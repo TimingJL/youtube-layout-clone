@@ -41,39 +41,50 @@ const LargeSideBarContainer = styled.div`
 const SideBar = () => {
   const {
     themeType,
-    isShowLargeMenu,
-    setIsShowLargeMenu,
-    isShowFloatSideMenu,
-    setIsShowFloatSideMenu,
+    isUsingFloatSideMenu,
+    setIsUsingFloatSideMenu,
+    isExtendMenu,
+    setIsExtendMenu,
+    isExtendFloatMenu,
+    setIsExtendFloatMenu,
+    isUsingLargeSideMenu,
+    setIsUsingLargeSideMenu,
   } = useContext(YoutubeCloneContext);
   const breakValue = getBreakPointValue(BREAK_POINT_XL, breakpoints);
   const handleOnResize = useCallback(() => {
     const windowWidth = document.documentElement.clientWidth;
     if (windowWidth >= breakValue) {
-      if (!isShowLargeMenu) {
-        setIsShowLargeMenu(true);
-      }
-    } else if (isShowLargeMenu) {
-      setIsShowLargeMenu(false);
+      setIsUsingFloatSideMenu(false);
+      setIsExtendFloatMenu(false);
+      setIsUsingLargeSideMenu(true);
+      return;
     }
-  }, [breakValue, isShowLargeMenu, setIsShowLargeMenu]);
+    setIsUsingFloatSideMenu(true);
+    setIsUsingLargeSideMenu(false);
+  }, [breakValue, setIsUsingFloatSideMenu]);
 
   useInitSidebarSize({
-    setIsShowLargeMenu,
     breakValue,
+    setIsUsingFloatSideMenu,
+    setIsExtendMenu,
+    setIsUsingLargeSideMenu,
   });
   useListenWindowResize({
     handleOnResize,
   });
+
   return (
     <>
-      <FloatSideBar
-        themeType={themeType}
-        isShowFloatSideMenu={isShowFloatSideMenu}
-        setIsShowFloatSideMenu={setIsShowFloatSideMenu}
-      />
       {
-        isShowLargeMenu ?
+        (isUsingFloatSideMenu) &&
+        <FloatSideBar
+          themeType={themeType}
+          isExtendFloatMenu={isExtendFloatMenu}
+          setIsExtendFloatMenu={setIsExtendFloatMenu}
+        />
+      }
+      {
+        (isUsingLargeSideMenu && isExtendMenu) ?
           <LargeSideBarContainer themeType={themeType}>
             LargeSideBar
           </LargeSideBarContainer> :

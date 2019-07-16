@@ -2,15 +2,23 @@
 import { useEffect } from 'react';
 
 export const useInitSidebarSize = ({
-  setIsShowLargeMenu,
   breakValue,
+  setIsUsingFloatSideMenu,
+  setIsExtendMenu,
+  setIsUsingLargeSideMenu,
 }) => {
   useEffect(() => {
     const windowWidth = document.documentElement.clientWidth;
     if (windowWidth > breakValue) {
-      setIsShowLargeMenu(true);
+      setIsUsingFloatSideMenu(false);
+      setIsExtendMenu(true);
+      setIsUsingLargeSideMenu(true);
+      return;
     }
-  }, [breakValue, setIsShowLargeMenu]);
+    setIsUsingFloatSideMenu(true);
+    setIsExtendMenu(false);
+    setIsUsingLargeSideMenu(false);
+  }, [breakValue]);
 };
 
 export const useListenWindowResize = ({

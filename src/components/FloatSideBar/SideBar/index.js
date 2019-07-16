@@ -23,6 +23,7 @@ const fadeInMaskAnimation = keyframes`
   100% {
     opacity: 0.5;
     display: 'block';
+    background: black;
   }
 `;
 
@@ -34,8 +35,7 @@ const SideBarContainer = styled.div`
     width: 100vw;
     height: 100vh;
     opacity: 0.5;
-    background: black;
-    animation: ${(props) => (props.isShowFloatSideMenu ? fadeInMaskAnimation : fadeOutMaskAnimation)} ${SPEED_ANIMATION}ms ease-in-out;
+    animation: ${(props) => (props.isExtendFloatMenu ? fadeInMaskAnimation : fadeOutMaskAnimation)} ${SPEED_ANIMATION}ms ease-in-out;
     animation-fill-mode: forwards;
   }
   .float-sidebar__menu-container {
@@ -43,23 +43,23 @@ const SideBarContainer = styled.div`
     height: 100vh;
     width: ${WIDTH_FLOAT_SIDE_BAR}px;
     background: ${(props) => props.theme[props.themeType].sidebar.background};
-    left: ${(props) => (props.isShowFloatSideMenu ? '0px' : `${-1 * (WIDTH_FLOAT_SIDE_BAR)}px`)};
+    left: ${(props) => (props.isExtendFloatMenu ? '0px' : `${-1 * (WIDTH_FLOAT_SIDE_BAR)}px`)};
     transition: left 0.15s ease-in-out;
   }
 `;
 
 const SideBar = ({
   themeType,
-  isShowFloatSideMenu,
-  setIsShowFloatSideMenu,
+  isExtendFloatMenu,
+  setIsExtendFloatMenu,
 }) => {
   const handleOnCloseFloatSideMenu = useCallback(() => {
-    setIsShowFloatSideMenu(false);
-  }, [setIsShowFloatSideMenu]);
+    setIsExtendFloatMenu(false);
+  }, [setIsExtendFloatMenu]);
   return (
     <SideBarContainer
       themeType={themeType}
-      isShowFloatSideMenu={isShowFloatSideMenu}
+      isExtendFloatMenu={isExtendFloatMenu}
     >
       <div
         role="presentation"
@@ -73,14 +73,14 @@ const SideBar = ({
 
 SideBar.propTypes = {
   themeType: PropTypes.string,
-  isShowFloatSideMenu: PropTypes.bool,
-  setIsShowFloatSideMenu: PropTypes.func,
+  isExtendFloatMenu: PropTypes.bool,
+  setIsExtendFloatMenu: PropTypes.func,
 };
 
 SideBar.defaultProps = {
   themeType: 'lightTheme',
-  isShowFloatSideMenu: false,
-  setIsShowFloatSideMenu: () => {},
+  isExtendFloatMenu: false,
+  setIsExtendFloatMenu: () => {},
 };
 
 export default SideBar;

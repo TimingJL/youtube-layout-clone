@@ -16,27 +16,27 @@ const sidebarRootStyle = `
 
 const FloatSideBar = ({
   themeType,
-  isShowFloatSideMenu,
-  setIsShowFloatSideMenu,
+  isExtendFloatMenu,
+  setIsExtendFloatMenu,
 }) => {
   const sidebarRootNode = document.getElementById('sidebar-root');
   useEffect(() => {
     sidebarRootNode.setAttribute('style', sidebarRootStyle);
   }, []);
   useEffect(() => {
-    if (!isShowFloatSideMenu) {
+    if (!isExtendFloatMenu) {
       setTimeout(() => {
         sidebarRootNode.style.zIndex = -1;
       }, SPEED_ANIMATION);
     } else {
       sidebarRootNode.style.zIndex = zIndices.Z_FLOAT_SIDE_BAR;
     }
-  }, [isShowFloatSideMenu]);
+  }, [isExtendFloatMenu]);
   return ReactDOM.createPortal(
     <SideBar
       themeType={themeType}
-      isShowFloatSideMenu={isShowFloatSideMenu}
-      setIsShowFloatSideMenu={setIsShowFloatSideMenu}
+      isExtendFloatMenu={isExtendFloatMenu}
+      setIsExtendFloatMenu={setIsExtendFloatMenu}
     />,
     sidebarRootNode,
   );
@@ -44,14 +44,14 @@ const FloatSideBar = ({
 
 FloatSideBar.propTypes = {
   themeType: PropTypes.string,
-  isShowFloatSideMenu: PropTypes.bool,
-  setIsShowFloatSideMenu: PropTypes.func,
+  isExtendFloatMenu: PropTypes.bool,
+  setIsExtendFloatMenu: PropTypes.func,
 };
 
 FloatSideBar.defaultProps = {
   themeType: 'lightTheme',
-  isShowFloatSideMenu: false,
-  setIsShowFloatSideMenu: () => {},
+  isExtendFloatMenu: false,
+  setIsExtendFloatMenu: () => {},
 };
 
 export default FloatSideBar;
