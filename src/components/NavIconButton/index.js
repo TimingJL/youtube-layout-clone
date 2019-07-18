@@ -11,4 +11,7 @@ export const NavIconButton = styled(RippleAnimationIcon)`
   cursor: pointer;
   color: ${(props) => (props.theme.navbar.iconColor)};
   font-size: 20px;
+  &:hover {
+    background: ${(props) => (props.theme.navbar.buttonHoverBackground)};
+  }
 `;
