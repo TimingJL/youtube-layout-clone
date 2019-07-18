@@ -1,14 +1,7 @@
 
 import {
-  HEIGHT_NAVIGATION_BAR,
-
-  // break point
   breakpoints,
 } from './constants';
-
-const navigationBar = {
-  height: HEIGHT_NAVIGATION_BAR,
-};
 
 export const lightTheme = {
   navbar: {
@@ -78,7 +71,4 @@ export const darkTheme = {
 
 export const defaultTheme = {
   breakpoints,
-  navigationBar,
-  lightTheme,
-  darkTheme,
 };

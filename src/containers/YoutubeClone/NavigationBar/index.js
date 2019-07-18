@@ -14,6 +14,7 @@ import {
 
 import { down } from 'components/BreakPoints';
 import {
+  HEIGHT_NAVIGATION_BAR,
   BREAK_POINT_SM,
   breakpoints,
 } from 'Styled/Settings/constants';
@@ -40,7 +41,7 @@ const NavigationBarContainer = styled.div`
   z-index: ${zIndices.Z_NAV_BAR};
   display: flex;
   align-items: center;
-  height: ${(props) => `${props.theme.navigationBar.height}px;`};
+  height: ${HEIGHT_NAVIGATION_BAR}px;
   color: ${(props) => props.theme.navbar.color};
   background: ${(props) => props.theme.navbar.background};
   box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
