@@ -1,10 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import {
-  YoutubeCloneContext,
-} from 'containers/YoutubeClone/Context';
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -14,10 +10,10 @@ const HeaderContainer = styled.div`
   padding: 0px 16px;
   font-size: 16px;
   font-weight: 500;
-  background: ${(props) => props.theme[props.themeType].dropdown.headerBackground};
-  color: ${(props) => props.theme[props.themeType].dropdown.iconColor};
+  background: ${(props) => props.theme.dropdown.headerBackground};
+  color: ${(props) => props.theme.dropdown.iconColor};
   .header__title {
-    color: ${(props) => props.theme[props.themeType].dropdown.color};
+    color: ${(props) => props.theme.dropdown.color};
   }
   .header__button {
     font-size: 20px;
@@ -28,19 +24,14 @@ const HeaderContainer = styled.div`
 const Header = ({
   title,
   button,
-}) => {
-  const {
-    themeType,
-  } = useContext(YoutubeCloneContext);
-  return (
-    <HeaderContainer themeType={themeType}>
-      <div className="header__title">{title}</div>
-      <div className="header__button">
-        {button}
-      </div>
-    </HeaderContainer>
-  );
-};
+}) => (
+  <HeaderContainer>
+    <div className="header__title">{title}</div>
+    <div className="header__button">
+      {button}
+    </div>
+  </HeaderContainer>
+);
 
 Header.propTypes = {
   title: PropTypes.string,

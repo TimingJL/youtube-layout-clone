@@ -13,14 +13,3 @@ export const breakpoints = {
   [BREAK_POINT_LG]: '746px',
   [BREAK_POINT_XL]: '1124px',
 };
-
-export const themeOptions = [
-  {
-    id: 'lightTheme',
-    name: '預設主題',
-  },
-  {
-    id: 'darkTheme',
-    name: '深色主題',
-  },
-];

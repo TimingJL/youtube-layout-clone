@@ -15,7 +15,7 @@ export const RippleAnimationIcon = styled.div`
     left: 0;
     pointer-events: none;
     background-image: radial-gradient(circle,
-      ${(props) => `${props.theme[props.themeType] ? props.theme[props.themeType].navbar.menuBackgroundColor : '#000'}`} 10%,
+      ${(props) => `${props.theme.navbar.menuBackgroundColor}`} 10%,
       #00000000 10.01%
     );
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@ export const RippleAnimationIcon = styled.div`
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: ${(props) => (props.theme[props.themeType] ? props.theme[props.themeType].navbar.menuBackgroundColor : '#000')};
+    background: ${(props) => (props.theme.navbar.menuBackgroundColor)};
     border-radius: 100%;
   }
 

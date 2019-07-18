@@ -27,7 +27,7 @@ import NarrowSideBarMenu from './NarrowSideBarMenu';
 const SideBarContainer = styled.div`
   padding: 5px 0px;
   width: 72px;
-  background: ${(props) => props.theme[props.themeType].sidebar.background};
+  background: ${(props) => props.theme.sidebar.background};
   ${down(BREAK_POINT_LG)} {
     display: none;
   }
@@ -38,7 +38,7 @@ const SideBarContainer = styled.div`
 
 const LargeSideBarContainer = styled.div`
   width: 240px;
-  background: ${(props) => props.theme[props.themeType].sidebar.background};
+  background: ${(props) => props.theme.sidebar.background};
   ${down(BREAK_POINT_LG)} {
     display: none;
   }
@@ -46,7 +46,6 @@ const LargeSideBarContainer = styled.div`
 
 const SideBar = () => {
   const {
-    themeType,
     isUsingFloatSideMenu,
     setIsUsingFloatSideMenu,
     isExtendMenu,
@@ -79,7 +78,6 @@ const SideBar = () => {
       {
         (isUsingFloatSideMenu) &&
         <FloatSideBar
-          themeType={themeType}
           isExtendFloatMenu={isExtendFloatMenu}
           setIsExtendFloatMenu={setIsExtendFloatMenu}
           menu={<FloatSideBarMenu />}
@@ -87,11 +85,11 @@ const SideBar = () => {
       }
       {
         (!isUsingFloatSideMenu && isExtendMenu) ?
-          <LargeSideBarContainer themeType={themeType}>
+          <LargeSideBarContainer>
             LargeSideBar
           </LargeSideBarContainer> :
-          <SideBarContainer themeType={themeType}>
-            <NarrowSideBarMenu themeType={themeType} />
+          <SideBarContainer>
+            <NarrowSideBarMenu />
           </SideBarContainer>
       }
     </>

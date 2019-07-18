@@ -42,14 +42,13 @@ const SideBarContainer = styled.div`
     position: absolute;
     height: 100vh;
     width: ${WIDTH_FLOAT_SIDE_BAR}px;
-    background: ${(props) => props.theme[props.themeType].sidebar.background};
+    background: ${(props) => props.theme.sidebar.background};
     left: ${(props) => (props.isExtendFloatMenu ? '0px' : `${-1 * (WIDTH_FLOAT_SIDE_BAR)}px`)};
     transition: left 0.15s ease-in-out;
   }
 `;
 
 const SideBar = ({
-  themeType,
   menu,
   isExtendFloatMenu,
   setIsExtendFloatMenu,
@@ -59,7 +58,6 @@ const SideBar = ({
   }, [setIsExtendFloatMenu]);
   return (
     <SideBarContainer
-      themeType={themeType}
       isExtendFloatMenu={isExtendFloatMenu}
     >
       <div
@@ -75,14 +73,12 @@ const SideBar = ({
 };
 
 SideBar.propTypes = {
-  themeType: PropTypes.string,
   menu: PropTypes.any,
   isExtendFloatMenu: PropTypes.bool,
   setIsExtendFloatMenu: PropTypes.func,
 };
 
 SideBar.defaultProps = {
-  themeType: 'lightTheme',
   menu: null,
   isExtendFloatMenu: false,
   setIsExtendFloatMenu: () => {},

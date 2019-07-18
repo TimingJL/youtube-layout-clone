@@ -10,7 +10,7 @@ const navigationBar = {
   height: HEIGHT_NAVIGATION_BAR,
 };
 
-const lightTheme = {
+export const lightTheme = {
   navbar: {
     color: '#282828',
     background: '#ffffff',
@@ -43,7 +43,7 @@ const lightTheme = {
   },
 };
 
-const darkTheme = {
+export const darkTheme = {
   navbar: {
     color: '#ffffff',
     background: '#282828fa',

@@ -41,8 +41,8 @@ const NavigationBarContainer = styled.div`
   display: flex;
   align-items: center;
   height: ${(props) => `${props.theme.navigationBar.height}px;`};
-  color: ${(props) => props.theme[props.themeType].navbar.color};
-  background: ${(props) => props.theme[props.themeType].navbar.background};
+  color: ${(props) => props.theme.navbar.color};
+  background: ${(props) => props.theme.navbar.background};
   box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
 `;
 
@@ -55,7 +55,6 @@ const NavigationMenuWrapper = styled.div`
 
 const NavigationBar = () => {
   const {
-    themeType,
     isNavSearchBar,
     isUsingFloatSideMenu,
     setIsNavSearchBar,
@@ -87,21 +86,21 @@ const NavigationBar = () => {
     };
   });
   return (
-    <NavigationBarContainer themeType={themeType}>
+    <NavigationBarContainer>
       {
         isNavSearchBar ?
-          <NavSearchBar themeType={themeType} handleSetIsNavSearchBar={handleSetIsNavSearchBar} /> :
+          <NavSearchBar handleSetIsNavSearchBar={handleSetIsNavSearchBar} /> :
           <NavigationMenuWrapper>
             <HamburgerMenuIconContainer onClick={handleOnMenuToggleClick}>
-              <HamburgerMenuIcon themeType={themeType} />
+              <HamburgerMenuIcon />
             </HamburgerMenuIconContainer>
-            <YoutubeLogo themeType={themeType} />
-            <SearchBar themeType={themeType} handleSetIsNavSearchBar={handleSetIsNavSearchBar} />
-            <UploadLive themeType={themeType} />
-            <FunctionMenu themeType={themeType} />
-            <Message themeType={themeType} />
-            <Notification themeType={themeType} />
-            <Avatar themeType={themeType} />
+            <YoutubeLogo />
+            <SearchBar handleSetIsNavSearchBar={handleSetIsNavSearchBar} />
+            <UploadLive />
+            <FunctionMenu />
+            <Message />
+            <Notification />
+            <Avatar />
           </NavigationMenuWrapper>
       }
     </NavigationBarContainer>

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { NavIconButton } from 'components/NavIconButton';
 import Dropdown from 'components/Dropdown';
 import MenuContent from './MenuContent';
@@ -10,26 +9,16 @@ const customStyle = {
   height: '642px',
 };
 
-const Notification = ({
-  themeType,
-}) => (
+const Notification = () => (
   <Dropdown
     id="Notification"
-    menu={<MenuContent themeType={themeType} />}
+    menu={<MenuContent />}
     customStyle={customStyle}
   >
-    <NavIconButton themeType={themeType}>
+    <NavIconButton>
       <i className="fas fa-bell" />
     </NavIconButton>
   </Dropdown>
 );
-
-Notification.propTypes = {
-  themeType: PropTypes.string,
-};
-
-Notification.defaultProps = {
-  themeType: 'lightTheme',
-};
 
 export default Notification;

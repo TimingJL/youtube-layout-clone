@@ -15,7 +15,6 @@ const sidebarRootStyle = `
 `;
 
 const FloatSideBar = ({
-  themeType,
   menu,
   isExtendFloatMenu,
   setIsExtendFloatMenu,
@@ -35,7 +34,6 @@ const FloatSideBar = ({
   }, [isExtendFloatMenu, sidebarRootNode]);
   return ReactDOM.createPortal(
     <SideBar
-      themeType={themeType}
       isExtendFloatMenu={isExtendFloatMenu}
       setIsExtendFloatMenu={setIsExtendFloatMenu}
       menu={menu}
@@ -45,14 +43,12 @@ const FloatSideBar = ({
 };
 
 FloatSideBar.propTypes = {
-  themeType: PropTypes.string,
   menu: PropTypes.any,
   isExtendFloatMenu: PropTypes.bool,
   setIsExtendFloatMenu: PropTypes.func,
 };
 
 FloatSideBar.defaultProps = {
-  themeType: 'lightTheme',
   menu: null,
   isExtendFloatMenu: false,
   setIsExtendFloatMenu: () => {},

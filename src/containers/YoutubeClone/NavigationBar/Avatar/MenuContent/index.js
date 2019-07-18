@@ -1,14 +1,10 @@
 import React, { useCallback, useContext } from 'react';
-import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { findAttributeInEvent } from 'utils/event';
 import {
   YoutubeCloneContext,
 } from 'containers/YoutubeClone/Context';
 import { AVATAR_URL } from 'containers/YoutubeClone/NavigationBar/constants';
-import {
-  themeOptions,
-} from 'Styled/Settings/constants';
 
 const themeSwitchIconAnimation = keyframes`
   0% {
@@ -28,7 +24,7 @@ const MenuContentContainer = styled.div`
   .menu-content__profile-wrapper {
     padding: 16px;
     display: flex;
-    border-bottom: 1px solid ${(props) => props.theme[props.themeType].dropdown.borderColor};
+    border-bottom: 1px solid ${(props) => props.theme.dropdown.borderColor};
   }
   .menu-content__profile-avatar-image {
     width: 40px;
@@ -56,26 +52,26 @@ const MenuContentContainer = styled.div`
   .menu-content__theme-switch-wrapper {
     font-size: 14px;
     padding: 8px 0px;
-    border-bottom: 1px solid ${(props) => props.theme[props.themeType].dropdown.borderColor};
+    border-bottom: 1px solid ${(props) => props.theme.dropdown.borderColor};
   }
   .menu-content__theme-switch-item {
     display: flex;
     align-items: center;
     line-height: 40px;
     font-size: 16px;
-    color: ${(props) => props.theme[props.themeType].dropdown.iconColor};
+    color: ${(props) => props.theme.dropdown.iconColor};
     &.subject {
-      color: ${(props) => props.theme[props.themeType].dropdown.iconColor};
+      color: ${(props) => props.theme.dropdown.iconColor};
       font-weight: 600;
     }
     &.option {
       cursor: pointer;
       &:hover {
-        background: ${(props) => props.theme[props.themeType].dropdown.itemHoverBackground};
+        background: ${(props) => props.theme.dropdown.itemHoverBackground};
       }
     }
     &.active {
-      color: ${(props) => props.theme[props.themeType].dropdown.color};
+      color: ${(props) => props.theme.dropdown.color};
     }
   }
   .menu-content__theme-switch-icon {
@@ -85,7 +81,7 @@ const MenuContentContainer = styled.div`
     text-align: center;
     visibility: hidden;
     &.subject {
-      color: ${(props) => props.theme[props.themeType].dropdown.iconColor};
+      color: ${(props) => props.theme.dropdown.iconColor};
       visibility: visible;
     }
     &.option {
@@ -98,10 +94,10 @@ const MenuContentContainer = styled.div`
   }
 `;
 
-const MenuContent = ({
-  themeType,
-}) => {
+const MenuContent = () => {
   const {
+    themeType,
+    themeOptions,
     setThemeType,
   } = useContext(YoutubeCloneContext);
   const handleOnThemeClick = useCallback((event) => {
@@ -109,7 +105,7 @@ const MenuContent = ({
     setThemeType(selectedThemeOption);
   }, [setThemeType]);
   return (
-    <MenuContentContainer themeType={themeType}>
+    <MenuContentContainer>
       <div className="menu-content__profile-wrapper">
         <img className="menu-content__profile-avatar-image" src={AVATAR_URL} alt="" />
         <div>
@@ -140,14 +136,6 @@ const MenuContent = ({
       </div>
     </MenuContentContainer>
   );
-};
-
-MenuContent.propTypes = {
-  themeType: PropTypes.string,
-};
-
-MenuContent.defaultProps = {
-  themeType: 'lightTheme',
 };
 
 export default MenuContent;

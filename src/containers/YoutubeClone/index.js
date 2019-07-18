@@ -1,6 +1,8 @@
 // Packages
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+
+import { defaultTheme } from 'Styled/Settings/theme';
 
 // Components
 import NavigationBar from './NavigationBar';
@@ -27,12 +29,21 @@ const YoutubeCloneContainer = styled.div`
 
 const YoutubeClone = () => {
   const value = useYoutubeCloneState();
+  const {
+    currentTheme,
+  } = value;
+  const theme = {
+    ...defaultTheme,
+    ...currentTheme,
+  };
   return (
     <Provider value={value}>
-      <YoutubeCloneContainer>
-        <NavigationBar />
-        <MainContentContainer />
-      </YoutubeCloneContainer>
+      <ThemeProvider theme={theme}>
+        <YoutubeCloneContainer>
+          <NavigationBar />
+          <MainContentContainer />
+        </YoutubeCloneContainer>
+      </ThemeProvider>
     </Provider>
   );
 };

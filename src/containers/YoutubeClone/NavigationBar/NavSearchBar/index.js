@@ -17,24 +17,21 @@ const BackButtonContainer = styled.div`
 `;
 
 const NavSearchBar = ({
-  themeType,
   handleSetIsNavSearchBar,
 }) => (
   <NavSearchBarContainer>
     <BackButtonContainer onClick={handleSetIsNavSearchBar}>
-      <BackButton themeType={themeType} />
+      <BackButton />
     </BackButtonContainer>
-    <InputSearchBar themeType={themeType} />
+    <InputSearchBar />
   </NavSearchBarContainer>
 );
 
 NavSearchBar.propTypes = {
-  themeType: PropTypes.string,
   handleSetIsNavSearchBar: PropTypes.func,
 };
 
 NavSearchBar.default = {
-  themeType: 'lightTheme',
   handleSetIsNavSearchBar: () => {},
 };
 

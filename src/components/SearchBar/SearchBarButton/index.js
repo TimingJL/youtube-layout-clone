@@ -18,21 +18,18 @@ const SearchBarIcon = styled(NavIconButton)`
 `;
 
 const SearchBarButton = ({
-  themeType,
   handleOnClick,
 }) => (
-  <SearchBarIcon themeType={themeType} onClick={handleOnClick}>
+  <SearchBarIcon onClick={handleOnClick}>
     <i className="fas fa-search" />
   </SearchBarIcon>
 );
 
 SearchBarButton.propTypes = {
-  themeType: PropTypes.string,
   handleOnClick: PropTypes.func,
 };
 
 SearchBarButton.default = {
-  themeType: 'lightTheme',
   handleOnClick: () => {},
 };
 

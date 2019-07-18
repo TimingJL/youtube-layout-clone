@@ -18,24 +18,21 @@ const InputSearchBarWrapper = styled.div`
 `;
 
 const SearchBar = ({
-  themeType,
   handleSetIsNavSearchBar,
 }) => (
   <>
     <InputSearchBarWrapper>
-      <InputSearchBar themeType={themeType} />
+      <InputSearchBar />
     </InputSearchBarWrapper>
-    <SearchBarIcon themeType={themeType} handleOnClick={handleSetIsNavSearchBar} />
+    <SearchBarIcon handleOnClick={handleSetIsNavSearchBar} />
   </>
 );
 
 SearchBar.propTypes = {
-  themeType: PropTypes.string,
   handleSetIsNavSearchBar: PropTypes.func,
 };
 
 SearchBar.default = {
-  themeType: 'lightTheme',
   handleSetIsNavSearchBar: () => {},
 };
 

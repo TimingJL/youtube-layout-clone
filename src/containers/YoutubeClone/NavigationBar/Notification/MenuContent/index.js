@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { fromJS } from 'immutable';
 import Header from 'components/Menu/Header';
@@ -20,7 +19,7 @@ const RowContainer = styled.div`
   height: 80px;
   cursor: pointer;
   &:hover {
-    background: ${(props) => props.theme[props.themeType].dropdown.itemHoverBackground};
+    background: ${(props) => props.theme.dropdown.itemHoverBackground};
     .row-wrappper__menu-icon {
       display: flex;
     }
@@ -44,7 +43,7 @@ const RowContainer = styled.div`
   .row-wrappper__date {
     color: #606060;
     font-size: 13px;
-    color: ${(props) => props.theme[props.themeType].dropdown.dateColor};
+    color: ${(props) => props.theme.dropdown.dateColor};
   }
   .row-wrappper__preview-image {
     width: 86px;
@@ -58,7 +57,7 @@ const RowContainer = styled.div`
   }
   .row-wrappper__menu-icon {
     display: none;
-    color: ${(props) => props.theme[props.themeType].dropdown.dateColor};
+    color: ${(props) => props.theme.dropdown.dateColor};
   }
 `;
 
@@ -87,9 +86,7 @@ const menuData = fromJS([
   },
 ]);
 
-const MenuContent = ({
-  themeType,
-}) => (
+const MenuContent = () => (
   <>
     <Header
       title="通知"
@@ -97,7 +94,7 @@ const MenuContent = ({
     />
     {
       menuData.map((data) => (
-        <RowContainer key={data.get('id')} themeType={themeType}>
+        <RowContainer key={data.get('id')}>
           <div>
             <img src={data.get('imgUrl')} className="row-wrappper__image" alt="" />
           </div>
@@ -114,13 +111,5 @@ const MenuContent = ({
     }
   </>
 );
-
-MenuContent.propTypes = {
-  themeType: PropTypes.string,
-};
-
-MenuContent.defaultProps = {
-  themeType: 'lightTheme',
-};
 
 export default MenuContent;

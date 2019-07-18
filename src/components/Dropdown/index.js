@@ -1,20 +1,17 @@
 /* eslint-disable no-undef */
 import React, {
-  useCallback, useState, useEffect, useContext,
+  useCallback, useState, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { findAttributeInEvent } from 'utils/event';
-import {
-  YoutubeCloneContext,
-} from 'containers/YoutubeClone/Context';
 
 const DATA_COMPONENT = 'dropdown-menu';
 
 const DropdownMenu = styled.div`
   position: absolute;
   display: ${(props) => (props.isVisible ? 'block' : 'none')};
-  background: ${(props) => props.theme[props.themeType].dropdown.background};
+  background: ${(props) => props.theme.dropdown.background};
   box-shadow: 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f, 0 8px 10px -5px #0006;
 `;
 
@@ -28,9 +25,6 @@ const Dropdown = ({
   children,
   customStyle,
 }) => {
-  const {
-    themeType,
-  } = useContext(YoutubeCloneContext);
   const [isVisible, setIsVisible] = useState(false);
   const dataComponent = `${id}-${DATA_COMPONENT}`;
   const handleOnContentClick = useCallback(() => {
@@ -53,7 +47,7 @@ const Dropdown = ({
       <div role="presentation" onClick={handleOnContentClick}>
         {children}
       </div>
-      <DropdownMenu style={customStyle} isVisible={isVisible} themeType={themeType}>
+      <DropdownMenu style={customStyle} isVisible={isVisible}>
         {menu}
       </DropdownMenu>
     </DropdownContainer>
