@@ -16,6 +16,7 @@ import {
 import {
   getBreakPointValue,
 } from 'Styled/Settings/utils';
+import FloatSideBarMenu from './FloatSideBarMenu';
 import {
   useInitSidebarSize,
   useListenWindowResize,
@@ -62,7 +63,7 @@ const SideBar = () => {
       return;
     }
     setIsUsingFloatSideMenu(true);
-  }, [breakValue, setIsUsingFloatSideMenu]);
+  }, [breakValue, setIsUsingFloatSideMenu, setIsExtendFloatMenu]);
 
   useInitSidebarSize({
     breakValue,
@@ -81,6 +82,7 @@ const SideBar = () => {
           themeType={themeType}
           isExtendFloatMenu={isExtendFloatMenu}
           setIsExtendFloatMenu={setIsExtendFloatMenu}
+          menu={<FloatSideBarMenu />}
         />
       }
       {

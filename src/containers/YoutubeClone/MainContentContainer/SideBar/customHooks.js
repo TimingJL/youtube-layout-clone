@@ -15,7 +15,7 @@ export const useInitSidebarSize = ({
     }
     setIsUsingFloatSideMenu(true);
     setIsExtendMenu(false);
-  }, [breakValue]);
+  }, [setIsUsingFloatSideMenu, setIsExtendMenu, breakValue]);
 };
 
 export const useListenWindowResize = ({

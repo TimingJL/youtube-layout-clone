@@ -31,7 +31,7 @@ export const RippleAnimationIcon = styled.div`
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: ${(props) => props.theme[props.themeType].navbar.menuBackgroundColor};
+    background: ${(props) => (props.theme[props.themeType] ? props.theme[props.themeType].navbar.menuBackgroundColor : '#000')};
     border-radius: 100%;
   }
 

@@ -50,6 +50,7 @@ const SideBarContainer = styled.div`
 
 const SideBar = ({
   themeType,
+  menu,
   isExtendFloatMenu,
   setIsExtendFloatMenu,
 }) => {
@@ -66,19 +67,23 @@ const SideBar = ({
         className="float-sidebar__mask"
         onClick={handleOnCloseFloatSideMenu}
       />
-      <div className="float-sidebar__menu-container">menu container</div>
+      <div className="float-sidebar__menu-container">
+        {menu}
+      </div>
     </SideBarContainer>
   );
 };
 
 SideBar.propTypes = {
   themeType: PropTypes.string,
+  menu: PropTypes.any,
   isExtendFloatMenu: PropTypes.bool,
   setIsExtendFloatMenu: PropTypes.func,
 };
 
 SideBar.defaultProps = {
   themeType: 'lightTheme',
+  menu: null,
   isExtendFloatMenu: false,
   setIsExtendFloatMenu: () => {},
 };

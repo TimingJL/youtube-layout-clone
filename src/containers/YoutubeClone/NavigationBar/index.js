@@ -95,7 +95,7 @@ const NavigationBar = () => {
             <HamburgerMenuIconContainer onClick={handleOnMenuToggleClick}>
               <HamburgerMenuIcon themeType={themeType} />
             </HamburgerMenuIconContainer>
-            <YoutubeLogo />
+            <YoutubeLogo themeType={themeType} />
             <SearchBar themeType={themeType} handleSetIsNavSearchBar={handleSetIsNavSearchBar} />
             <UploadLive themeType={themeType} />
             <FunctionMenu themeType={themeType} />

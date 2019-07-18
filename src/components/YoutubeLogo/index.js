@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { down } from 'components/BreakPoints';
 import {
@@ -14,6 +15,7 @@ const Container = styled.div`
   align-items: center;
   font-family: 'Anton', sans-serif;
   cursor: pointer;
+  color: ${(props) => props.theme[props.themeType].navbar.color};
   .youtube-logo__image {
     width: 25px;
     margin-right: 3px;
@@ -23,11 +25,21 @@ const Container = styled.div`
   }
 `;
 
-const YoutubeLogo = () => (
-  <Container>
+const YoutubeLogo = ({
+  themeType,
+}) => (
+  <Container themeType={themeType}>
     <img alt="" src={URL_LOGO} className="youtube-logo__image" />
-    <div title="Taiming Tube">MeTube</div>
+    <div title="MeTube">MeTube</div>
   </Container>
 );
+
+YoutubeLogo.propTypes = {
+  themeType: PropTypes.string,
+};
+
+YoutubeLogo.defaultProps = {
+  themeType: 'lightTheme',
+};
 
 export default YoutubeLogo;
