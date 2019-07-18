@@ -22,6 +22,7 @@ import {
   useListenWindowResize,
 } from './customHooks';
 import NarrowSideBarMenu from './NarrowSideBarMenu';
+import LargeSideBarMenu from './LargeSideBarMenu';
 
 
 const SideBarContainer = styled.div`
@@ -86,7 +87,7 @@ const SideBar = () => {
       {
         (!isUsingFloatSideMenu && isExtendMenu) ?
           <LargeSideBarContainer>
-            LargeSideBar
+            <LargeSideBarMenu />
           </LargeSideBarContainer> :
           <SideBarContainer>
             <NarrowSideBarMenu />

@@ -25,10 +25,12 @@ export const lightTheme = {
   },
   sidebar: {
     color: '#606060',
+    largeMenuColor: '#0d0d0d',
     background: '#f5f5f5',
     iconColor: '#909090',
     iconActiveColor: '#2f9ae6',
     iconBackgroundHover: '#00000015',
+    iconBackgroundActive: '#c3c3c3',
   },
   mainContent: {
     color: '#282828',
@@ -58,10 +60,12 @@ export const darkTheme = {
   },
   sidebar: {
     color: '#aaaaaa',
+    largeMenuColor: '#ffffff',
     background: '#1c1c1c',
     iconColor: '#909090',
     iconActiveColor: '#ffffff',
     iconBackgroundHover: '#ffffff15',
+    iconBackgroundActive: '#4b4b4b',
   },
   mainContent: {
     color: '#ffffff',

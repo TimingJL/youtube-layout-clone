@@ -7,6 +7,7 @@ import YoutubeLogo from 'components/YoutubeLogo';
 import {
   YoutubeCloneContext,
 } from 'containers/YoutubeClone/Context';
+import LargeSideBarMenu from './LargeSideBarMenu';
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ const FloatSideBarMenu = () => {
         </div>
         <YoutubeLogo />
       </HeaderContainer>
+      <LargeSideBarMenu />
     </>
   );
 };
