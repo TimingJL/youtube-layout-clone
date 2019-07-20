@@ -64,6 +64,9 @@ const SideBar = () => {
     }
     setIsUsingFloatSideMenu(true);
   }, [breakValue, setIsUsingFloatSideMenu, setIsExtendFloatMenu]);
+  const handleOnSelectMenu = useCallback(() => {
+    console.log('hello?');
+  }, []);
 
   useInitSidebarSize({
     breakValue,
@@ -81,16 +84,16 @@ const SideBar = () => {
         <FloatSideBar
           isExtendFloatMenu={isExtendFloatMenu}
           setIsExtendFloatMenu={setIsExtendFloatMenu}
-          menu={<FloatSideBarMenu />}
+          menu={<FloatSideBarMenu handleOnClick={handleOnSelectMenu} />}
         />
       }
       {
         (!isUsingFloatSideMenu && isExtendMenu) ?
           <LargeSideBarContainer>
-            <LargeSideBarMenu />
+            <LargeSideBarMenu handleOnClick={handleOnSelectMenu} />
           </LargeSideBarContainer> :
           <SideBarContainer>
-            <NarrowSideBarMenu />
+            <NarrowSideBarMenu handleOnClick={handleOnSelectMenu} />
           </SideBarContainer>
       }
     </>

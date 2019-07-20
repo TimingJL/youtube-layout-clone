@@ -1,4 +1,5 @@
 import React, { useContext, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import HamburgerMenuIcon from 'components/HamburgerMenuIcon';
@@ -20,7 +21,9 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const FloatSideBarMenu = () => {
+const FloatSideBarMenu = ({
+  handleOnClick,
+}) => {
   const {
     setIsExtendFloatMenu,
   } = useContext(YoutubeCloneContext);
@@ -39,9 +42,17 @@ const FloatSideBarMenu = () => {
         </div>
         <YoutubeLogo />
       </HeaderContainer>
-      <LargeSideBarMenu />
+      <LargeSideBarMenu handleOnClick={handleOnClick} />
     </>
   );
+};
+
+FloatSideBarMenu.propTypes = {
+  handleOnClick: PropTypes.func,
+};
+
+FloatSideBarMenu.defualtProps = {
+  handleOnClick: () => {},
 };
 
 export default FloatSideBarMenu;

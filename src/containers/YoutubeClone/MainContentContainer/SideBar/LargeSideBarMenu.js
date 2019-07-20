@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MenuContainer = styled.div`
@@ -31,41 +32,51 @@ const MenuItem = styled.div`
   }
 `;
 
-const LargeSideBarMenu = () => (
+const LargeSideBarMenu = ({
+  handleOnClick,
+}) => (
   <>
     <MenuContainer>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fas fa-home sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">首頁</div>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fab fa-hotjar sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">發燒影片</div>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fab fa-youtube sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">訂閱內容</div>
       </MenuItem>
     </MenuContainer>
     <MenuContainer>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fas fa-folder sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">媒體庫</div>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fas fa-history sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">觀看紀錄</div>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fas fa-clock sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">稍後觀看</div>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={handleOnClick}>
         <i className="fas fa-thumbs-up sidebar-menu__menu-item-icon" />
         <div className="sidebar-menu__menu-item-text">喜歡的影片</div>
       </MenuItem>
     </MenuContainer>
   </>
 );
+
+LargeSideBarMenu.propTypes = {
+  handleOnClick: PropTypes.func,
+};
+
+LargeSideBarMenu.defualtProps = {
+  handleOnClick: () => {},
+};
 
 export default LargeSideBarMenu;

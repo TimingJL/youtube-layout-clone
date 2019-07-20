@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Icon = styled.div`
@@ -15,6 +16,9 @@ const Icon = styled.div`
   &:hover {
     background: ${(props) => props.theme.sidebar.iconBackgroundHover};
   }
+  &:active {
+    background: ${(props) => props.theme.sidebar.iconBackgroundActive};
+  }
   .narrow-sidebar__icon {
     font-size: 18px;
     margin-bottom: 6px;
@@ -22,25 +26,35 @@ const Icon = styled.div`
   }
 `;
 
-const NarrowSideBarMenu = () => (
+const NarrowSideBarMenu = ({
+  handleOnClick,
+}) => (
   <>
-    <Icon>
+    <Icon onClick={handleOnClick}>
       <i className="fas fa-home narrow-sidebar__icon" />
       <div>首頁</div>
     </Icon>
-    <Icon>
+    <Icon onClick={handleOnClick}>
       <i className="fab fa-hotjar narrow-sidebar__icon" />
       <div>發燒影片</div>
     </Icon>
-    <Icon>
+    <Icon onClick={handleOnClick}>
       <i className="fab fa-youtube narrow-sidebar__icon" />
       <div>訂閱內容</div>
     </Icon>
-    <Icon>
+    <Icon onClick={handleOnClick}>
       <i className="fas fa-folder narrow-sidebar__icon" />
       <div>媒體庫</div>
     </Icon>
   </>
 );
+
+NarrowSideBarMenu.propTypes = {
+  handleOnClick: PropTypes.func,
+};
+
+NarrowSideBarMenu.defualtProps = {
+  handleOnClick: () => {},
+};
 
 export default NarrowSideBarMenu;
