@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import styled from 'styled-components';
 
+import { findAttributeInEvent } from 'utils/event';
 import FloatSideBar from 'components/FloatSideBar';
 
 import {
@@ -54,6 +55,7 @@ const SideBar = () => {
     isExtendFloatMenu,
     setIsExtendFloatMenu,
   } = useContext(YoutubeCloneContext);
+  const [selectedMenuItem, setSelectedMenuItem] = useState('');
   const breakValue = getBreakPointValue(BREAK_POINT_XL, breakpoints);
   const handleOnResize = useCallback(() => {
     const windowWidth = document.documentElement.clientWidth;
@@ -64,9 +66,10 @@ const SideBar = () => {
     }
     setIsUsingFloatSideMenu(true);
   }, [breakValue, setIsUsingFloatSideMenu, setIsExtendFloatMenu]);
-  const handleOnSelectMenu = useCallback(() => {
-    console.log('hello?');
-  }, []);
+  const handleOnSelectMenu = useCallback((event) => {
+    const dataMenuItem = findAttributeInEvent(event, 'data-menu-item');
+    setSelectedMenuItem(dataMenuItem);
+  }, [setSelectedMenuItem]);
 
   useInitSidebarSize({
     breakValue,
@@ -84,16 +87,16 @@ const SideBar = () => {
         <FloatSideBar
           isExtendFloatMenu={isExtendFloatMenu}
           setIsExtendFloatMenu={setIsExtendFloatMenu}
-          menu={<FloatSideBarMenu handleOnClick={handleOnSelectMenu} />}
+          menu={<FloatSideBarMenu selectedMenuItem={selectedMenuItem} handleOnClick={handleOnSelectMenu} />}
         />
       }
       {
         (!isUsingFloatSideMenu && isExtendMenu) ?
           <LargeSideBarContainer>
-            <LargeSideBarMenu handleOnClick={handleOnSelectMenu} />
+            <LargeSideBarMenu selectedMenuItem={selectedMenuItem} handleOnClick={handleOnSelectMenu} />
           </LargeSideBarContainer> :
           <SideBarContainer>
-            <NarrowSideBarMenu handleOnClick={handleOnSelectMenu} />
+            <NarrowSideBarMenu selectedMenuItem={selectedMenuItem} handleOnClick={handleOnSelectMenu} />
           </SideBarContainer>
       }
     </>

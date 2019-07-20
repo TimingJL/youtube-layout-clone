@@ -22,6 +22,7 @@ const HeaderContainer = styled.div`
 `;
 
 const FloatSideBarMenu = ({
+  selectedMenuItem,
   handleOnClick,
 }) => {
   const {
@@ -42,16 +43,18 @@ const FloatSideBarMenu = ({
         </div>
         <YoutubeLogo />
       </HeaderContainer>
-      <LargeSideBarMenu handleOnClick={handleOnClick} />
+      <LargeSideBarMenu selectedMenuItem={selectedMenuItem} handleOnClick={handleOnClick} />
     </>
   );
 };
 
 FloatSideBarMenu.propTypes = {
+  selectedMenuItem: PropTypes.string,
   handleOnClick: PropTypes.func,
 };
 
 FloatSideBarMenu.defualtProps = {
+  selectedMenuItem: '',
   handleOnClick: () => {},
 };
 

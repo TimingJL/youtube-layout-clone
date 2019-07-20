@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { isSelected } from './utils';
 
 const Icon = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ const Icon = styled.div`
   height: 76px;
   cursor: pointer;
   color: ${(props) => props.theme.sidebar.color};
+  background: ${(props) => (props.isSelected ? props.theme.sidebar.iconBackgroundHover : '')};
   &:hover {
     background: ${(props) => props.theme.sidebar.iconBackgroundHover};
   }
@@ -22,38 +24,45 @@ const Icon = styled.div`
   .narrow-sidebar__icon {
     font-size: 18px;
     margin-bottom: 6px;
-    color: ${(props) => props.theme.sidebar.iconColor};
+    color: ${(props) => (props.isSelected ? props.theme.sidebar.iconActiveColor : props.theme.sidebar.iconColor)};
+  }
+  .narrow-sidebar__text {
+    font-weight: ${(props) => (props.isSelected ? 600 : 400)};
+    color: ${(props) => (props.isSelected ? props.theme.sidebar.iconActiveColor : 'currentColor')}
   }
 `;
 
 const NarrowSideBarMenu = ({
+  selectedMenuItem,
   handleOnClick,
 }) => (
   <>
-    <Icon onClick={handleOnClick}>
+    <Icon data-menu-item="home" onClick={handleOnClick} isSelected={isSelected('home', selectedMenuItem)}>
       <i className="fas fa-home narrow-sidebar__icon" />
-      <div>首頁</div>
+      <div className="narrow-sidebar__text">首頁</div>
     </Icon>
-    <Icon onClick={handleOnClick}>
+    <Icon data-menu-item="trending" onClick={handleOnClick} isSelected={isSelected('trending', selectedMenuItem)}>
       <i className="fab fa-hotjar narrow-sidebar__icon" />
-      <div>發燒影片</div>
+      <div className="narrow-sidebar__text">發燒影片</div>
     </Icon>
-    <Icon onClick={handleOnClick}>
+    <Icon data-menu-item="subscriptions" onClick={handleOnClick} isSelected={isSelected('subscriptions', selectedMenuItem)}>
       <i className="fab fa-youtube narrow-sidebar__icon" />
-      <div>訂閱內容</div>
+      <div className="narrow-sidebar__text">訂閱內容</div>
     </Icon>
-    <Icon onClick={handleOnClick}>
+    <Icon data-menu-item="library" onClick={handleOnClick} isSelected={isSelected('library', selectedMenuItem)}>
       <i className="fas fa-folder narrow-sidebar__icon" />
-      <div>媒體庫</div>
+      <div className="narrow-sidebar__text">媒體庫</div>
     </Icon>
   </>
 );
 
 NarrowSideBarMenu.propTypes = {
+  selectedMenuItem: PropTypes.string,
   handleOnClick: PropTypes.func,
 };
 
-NarrowSideBarMenu.defualtProps = {
+NarrowSideBarMenu.defaultProps = {
+  selectedMenuItem: '',
   handleOnClick: () => {},
 };
 

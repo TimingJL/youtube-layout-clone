@@ -1,4 +1,4 @@
-
+import { COLOR_LOGO } from 'Styled/Settings/colors';
 import {
   breakpoints,
 } from './constants';
@@ -28,7 +28,7 @@ export const lightTheme = {
     largeMenuColor: '#0d0d0d',
     background: '#f5f5f5',
     iconColor: '#909090',
-    iconActiveColor: '#2f9ae6',
+    iconActiveColor: COLOR_LOGO,
     iconBackgroundHover: '#00000015',
     iconBackgroundActive: '#c3c3c3',
   },
