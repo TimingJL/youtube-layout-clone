@@ -35,6 +35,7 @@ export const lightTheme = {
   mainContent: {
     color: '#282828',
     background: '#fafafa',
+    borderColor: '#e1e1e1',
   },
 };
 
@@ -70,6 +71,7 @@ export const darkTheme = {
   mainContent: {
     color: '#ffffff',
     background: '#121212',
+    borderColor: '#2a2a2a',
   },
 };
 
