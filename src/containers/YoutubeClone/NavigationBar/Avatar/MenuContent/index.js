@@ -99,11 +99,20 @@ const MenuContent = () => {
     themeType,
     themeOptions,
     setThemeType,
+    languageOptions,
+    language,
+    handleSetLanguage,
   } = useContext(YoutubeCloneContext);
   const handleOnThemeClick = useCallback((event) => {
     const selectedThemeOption = findAttributeInEvent(event, 'data-theme-option');
     setThemeType(selectedThemeOption);
   }, [setThemeType]);
+
+  const handleOnLanguageClick = useCallback((event) => {
+    const selectedLanguageOption = findAttributeInEvent(event, 'data-language-option');
+    handleSetLanguage(selectedLanguageOption);
+  }, [handleSetLanguage]);
+
   return (
     <MenuContentContainer>
       <div className="menu-content__profile-wrapper">
@@ -130,6 +139,27 @@ const MenuContent = () => {
             >
               <i className={`fas fa-check menu-content__theme-switch-icon option${setOptionStyle(option.id, themeType)}`} />
               <div className="menu-content__theme-switch-title">{option.name}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div className="menu-content__theme-switch-wrapper">
+        <div className="menu-content__theme-switch-item subject">
+          <i className="fas fa-language menu-content__theme-switch-icon subject" />
+          <div>語言</div>
+        </div>
+        {
+          languageOptions.map((option) => (
+            <div
+              role="presentation"
+              key={option.id}
+              data-language-option={option.id}
+              className={`menu-content__theme-switch-item option${setOptionStyle(option.id, language)}`}
+              onClick={handleOnLanguageClick}
+            >
+              <i className={`fas fa-check menu-content__theme-switch-icon option${setOptionStyle(option.id, language)}`} />
+              <div className="menu-content__theme-switch-title">{option.en}</div>
             </div>
           ))
         }
