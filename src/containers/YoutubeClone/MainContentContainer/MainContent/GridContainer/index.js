@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import LoaderIcon from 'components/LoaderIcon';
 import RowContent from './RowContent';
 
 const Container = styled.div`
@@ -43,6 +45,7 @@ const GridContainer = ({
     <RowContent mainContentWidth={mainContentWidth} />
     <RowContent mainContentWidth={mainContentWidth} />
     <RowContent mainContentWidth={mainContentWidth} />
+    <LoaderIcon />
   </Container>
 );
 
