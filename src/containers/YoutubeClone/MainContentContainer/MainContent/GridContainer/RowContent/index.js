@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { findAttributeInEvent } from 'utils/event';
+import VideoCard from './VideoCard';
 
 const getTranslateX = (mainContentWidth) => {
   if (mainContentWidth > 1312) {
@@ -40,11 +41,30 @@ const RowContentContainer = styled.div`
     font-size: 16px;
     font-weight: 900;
   }
+  .row-content__operation-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .row-content__record-button {
+    width: 107px;
+    height: 40px;
+    color: white;
+    background: #cc0000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px 4px;
+    border-radius: 3px;
+  }
   .row-content__subject-info-cancel-icon {
-    width: 24px;
+    width: 40px;
     font-size: 24px;
     cursor: pointer;
     color: #909090;
+    text-align: center;
   }
   .row-content__favicon {
     width: 32px;
@@ -68,21 +88,6 @@ const RowContentContainer = styled.div`
     transition: transform 0.2s ease-in-out;
   }
 
-  .row-content__card {
-    /* background: white; */
-  }
-  .row-content__card-image {
-    background: url('https://i.ytimg.com/vi/7OOrJESdggk/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDGj91hnIV_XBDNtv8wPhoYvywdYg');
-    background-size: cover;
-    width: 210px;
-    height: 117px;
-  }
-  .row-content__card-title {
-    font-size: 14px;
-    font-weight: 900;
-    padding: 10px 0px;
-    padding-right: 24px;
-  }
   .row-content__caret-wrapper {
     position: absolute;
     background: white;
@@ -142,19 +147,16 @@ const RowContent = ({
           <div className="row-content__favicon" />
           <div>木曜4超玩</div>
         </div>
-        <i className="fas fa-times row-content__subject-info-cancel-icon" />
+        <div className="row-content__operation-wrapper">
+          <div className="row-content__record-button"><span>訂閱(143萬)</span></div>
+          <i className="fas fa-times row-content__subject-info-cancel-icon" />
+        </div>
       </div>
       <div className="row-content__content-wrapper">
         <div className="row-content__card-wrapper">
           {
             cards.map((card) => (
-              <div key={card} className="row-content__card">
-                <div className="row-content__card-image" />
-                <div className="row-content__card-title">
-                  {card}
-                  《一日系列第一百零九集》史上最離奇!!YouBike修到一半主...
-                </div>
-              </div>
+              <VideoCard key={card} data={card} />
             ))
           }
         </div>

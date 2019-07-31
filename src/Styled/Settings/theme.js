@@ -36,6 +36,7 @@ export const lightTheme = {
     color: '#282828',
     background: '#fafafa',
     borderColor: '#e1e1e1',
+    cardTextColor: '#606060',
   },
 };
 
@@ -72,6 +73,7 @@ export const darkTheme = {
     color: '#ffffff',
     background: '#121212',
     borderColor: '#2a2a2a',
+    cardTextColor: '#aaaaaa',
   },
 };
 
