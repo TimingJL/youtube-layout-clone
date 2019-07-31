@@ -129,7 +129,7 @@ const RowContent = ({
         <div className="row-content__card-wrapper">
           {
             cards.map((card) => (
-              <div className="row-content__card">
+              <div key={card} className="row-content__card">
                 <div className="row-content__card-image" />
                 <div className="row-content__card-title">
                   {card}
