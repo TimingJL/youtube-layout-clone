@@ -40,21 +40,28 @@ const Container = styled.div`
 
 const GridContainer = ({
   mainContentWidth,
+  isLoading,
+  dataSource,
 }) => (
   <Container mainContentWidth={mainContentWidth}>
-    <RowContent mainContentWidth={mainContentWidth} />
-    <RowContent mainContentWidth={mainContentWidth} />
-    <RowContent mainContentWidth={mainContentWidth} />
-    <LoaderIcon />
+    {
+      dataSource.map((item) => (
+        <RowContent key={item} mainContentWidth={mainContentWidth} />
+      ))
+    }
+    {isLoading && <LoaderIcon />}
   </Container>
 );
 
 GridContainer.propTypes = {
   mainContentWidth: PropTypes.number,
+  dataSource: PropTypes.any,
+  isLoading: PropTypes.bool,
 };
 
 GridContainer.defaultProps = {
   mainContentWidth: 0,
+  isLoading: false,
 };
 
 export default GridContainer;
