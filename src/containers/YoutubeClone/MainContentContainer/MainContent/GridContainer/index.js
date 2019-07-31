@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import RowContent from './RowContent';
@@ -26,25 +26,20 @@ const Container = styled.div`
       `;
     }
     return `
-      width: 214px;
+      width: 100%;
     `;
   }}
 `;
 
 const GridContainer = ({
   mainContentWidth,
-}) => {
-  useEffect(() => {
-    console.log('mainContentWidth: ', mainContentWidth);
-  }, [mainContentWidth]);
-  return (
-    <Container mainContentWidth={mainContentWidth}>
-      <RowContent />
-      <RowContent />
-      <RowContent />
-    </Container>
-  );
-};
+}) => (
+  <Container mainContentWidth={mainContentWidth}>
+    <RowContent mainContentWidth={mainContentWidth} />
+    <RowContent mainContentWidth={mainContentWidth} />
+    <RowContent mainContentWidth={mainContentWidth} />
+  </Container>
+);
 
 GridContainer.propTypes = {
   mainContentWidth: PropTypes.number,
