@@ -5,6 +5,11 @@ import RowContent from './RowContent';
 
 const Container = styled.div`
   ${(props) => {
+    if (props.mainContentWidth > 1312) {
+      return `
+        width: 1284px;
+      `;
+    }
     if (props.mainContentWidth > 1070) {
       return `
         width: 1070px;

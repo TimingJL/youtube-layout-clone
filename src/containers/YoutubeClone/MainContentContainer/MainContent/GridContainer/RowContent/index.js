@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { findAttributeInEvent } from 'utils/event';
 
 const getTranslateX = (mainContentWidth) => {
+  if (mainContentWidth > 1312) {
+    return 0;
+  }
   if (mainContentWidth > 1070) {
     return -214;
   }
@@ -101,6 +104,22 @@ const RowContentContainer = styled.div`
       left: 0px;
       transform: translateX(-50%);
     }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 100%;
+      background: #eee;
+      z-index: -1;
+      transform: scale(0);
+    }
+    &:active {
+      &:after {
+        transform: scale(1);
+        transition: 0.1s ease-in-out;
+      }
+    }
   }
 `;
 
@@ -141,9 +160,9 @@ const RowContent = ({
         </div>
       </div>
       {
-        caret === 'right'
+        (caret === 'right'
           ? <div role="presentation" data-caret-type="left" onClick={handleOnClickCaret} className="row-content__caret-wrapper left"><i className="fas fa-chevron-left" /></div>
-          : <div role="presentation" data-caret-type="right" onClick={handleOnClickCaret} className="row-content__caret-wrapper right"><i className="fas fa-chevron-right" /></div>
+          : <div role="presentation" data-caret-type="right" onClick={handleOnClickCaret} className="row-content__caret-wrapper right"><i className="fas fa-chevron-right" /></div>)
       }
     </RowContentContainer>
   );
