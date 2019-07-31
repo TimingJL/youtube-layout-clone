@@ -40,6 +40,7 @@ const SideBarContainer = styled.div`
 
 const LargeSideBarContainer = styled.div`
   width: 240px;
+  min-width: 240px;
   background: ${(props) => props.theme.sidebar.background};
   ${down(BREAK_POINT_LG)} {
     display: none;
