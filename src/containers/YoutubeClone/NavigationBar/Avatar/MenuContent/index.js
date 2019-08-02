@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import { findAttributeInEvent } from 'utils/event';
 import {
   YoutubeCloneContext,
@@ -47,6 +48,7 @@ const MenuContentContainer = styled.div`
     margin: 8px 0px;
     font-weight: 500;
     cursor: pointer;
+    line-height: 20px;
   }
 
   .menu-content__theme-switch-wrapper {
@@ -95,6 +97,7 @@ const MenuContentContainer = styled.div`
 `;
 
 const MenuContent = () => {
+  const { t } = useTranslation('dropdown');
   const {
     themeType,
     themeOptions,
@@ -120,13 +123,13 @@ const MenuContent = () => {
         <div>
           <div className="menu-content__profile-name">陳泰銘</div>
           <div className="menu-content__profile-email">eefozeo@gmail.com</div>
-          <div className="menu-content__profile-management">管理你的 Google 帳戶</div>
+          <div className="menu-content__profile-management">{t('manageYourAccount')}</div>
         </div>
       </div>
       <div className="menu-content__theme-switch-wrapper">
         <div className="menu-content__theme-switch-item subject">
           <i className="fas fa-sun menu-content__theme-switch-icon subject" />
-          <div>自訂主題</div>
+          <div>{t('customTheme')}</div>
         </div>
         {
           themeOptions.map((option) => (
@@ -147,7 +150,7 @@ const MenuContent = () => {
       <div className="menu-content__theme-switch-wrapper">
         <div className="menu-content__theme-switch-item subject">
           <i className="fas fa-language menu-content__theme-switch-icon subject" />
-          <div>語言</div>
+          <div>{t('language')}</div>
         </div>
         {
           languageOptions.map((option) => (
@@ -159,7 +162,7 @@ const MenuContent = () => {
               onClick={handleOnLanguageClick}
             >
               <i className={`fas fa-check menu-content__theme-switch-icon option${setOptionStyle(option.id, language)}`} />
-              <div className="menu-content__theme-switch-title">{option.en}</div>
+              <div className="menu-content__theme-switch-title">{option.name}</div>
             </div>
           ))
         }

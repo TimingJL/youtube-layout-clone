@@ -68,11 +68,11 @@ const LargeSideBarMenu = ({
         </MenuItem>
         <MenuItem data-menu-item="watch-later" onClick={handleOnClick} isSelected={isSelected('watch-later', selectedMenuItem)}>
           <i className="fas fa-clock sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">{t('watchlater')}</div>
+          <div className="sidebar-menu__menu-item-text">{t('watchLater')}</div>
         </MenuItem>
         <MenuItem data-menu-item="liked-video" onClick={handleOnClick} isSelected={isSelected('liked-video', selectedMenuItem)}>
           <i className="fas fa-thumbs-up sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">{t('likedvideos')}</div>
+          <div className="sidebar-menu__menu-item-text">{t('likedVideos')}</div>
         </MenuItem>
       </MenuContainer>
     </>

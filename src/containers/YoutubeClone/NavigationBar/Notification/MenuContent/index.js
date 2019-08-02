@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fromJS } from 'immutable';
+import { useTranslation } from 'react-i18next';
 import Header from 'components/Menu/Header';
 
 const PreviewImage = styled.div`
@@ -86,30 +87,33 @@ const menuData = fromJS([
   },
 ]);
 
-const MenuContent = () => (
-  <>
-    <Header
-      title="通知"
-      button={<div className="fas fa-cog" />}
-    />
-    {
-      menuData.map((data) => (
-        <RowContainer key={data.get('id')}>
-          <div>
-            <img src={data.get('imgUrl')} className="row-wrappper__image" alt="" />
-          </div>
-          <div className="row-wrappper__title-wrapper">
-            <div className="row-wrappper__title">{data.get('title')}</div>
-            <div className="row-wrappper__date">{data.get('date')}</div>
-          </div>
-          <PreviewImage src={data.get('previewImage')} />
-          <div className="row-wrappper__menu-icon-wrapper">
-            <i className="fas fa-ellipsis-v row-wrappper__menu-icon" />
-          </div>
-        </RowContainer>
-      ))
-    }
-  </>
-);
+const MenuContent = () => {
+  const { t } = useTranslation('dropdown');
+  return (
+    <>
+      <Header
+        title={t('notifications')}
+        button={<div className="fas fa-cog" />}
+      />
+      {
+        menuData.map((data) => (
+          <RowContainer key={data.get('id')}>
+            <div>
+              <img src={data.get('imgUrl')} className="row-wrappper__image" alt="" />
+            </div>
+            <div className="row-wrappper__title-wrapper">
+              <div className="row-wrappper__title">{data.get('title')}</div>
+              <div className="row-wrappper__date">{data.get('date')}</div>
+            </div>
+            <PreviewImage src={data.get('previewImage')} />
+            <div className="row-wrappper__menu-icon-wrapper">
+              <i className="fas fa-ellipsis-v row-wrappper__menu-icon" />
+            </div>
+          </RowContainer>
+        ))
+      }
+    </>
+  );
+};
 
 export default MenuContent;

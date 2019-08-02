@@ -5,7 +5,21 @@ export default {
     subscriptions: '訂閱內容',
     library: '媒體庫',
     history: '觀看紀錄',
-    watchlater: '稍後觀看',
-    likedvideos: '喜歡的影片',
+    watchLater: '稍後觀看',
+    likedVideos: '喜歡的影片',
+  },
+  dropdown: {
+    manageYourAccount: '管理你的 Google 帳戶',
+    customTheme: '自訂主題',
+    language: '語言',
+    notifications: '通知',
+  },
+  langauge: {
+    english: '英文',
+    zhHant: '繁體中文',
+  },
+  theme: {
+    lightTheme: '預設主題',
+    darkTheme: '深色主題',
   },
 };

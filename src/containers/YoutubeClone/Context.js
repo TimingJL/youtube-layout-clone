@@ -13,7 +13,7 @@ export const useYoutubeCloneState = () => {
   const [isExtendMenu, setIsExtendMenu] = useState(false);
   const [isExtendFloatMenu, setIsExtendFloatMenu] = useState(false);
   const [isUsingFloatSideMenu, setIsUsingFloatSideMenu] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
 
   const handleSetLanguage = useCallback((lang) => {
@@ -28,23 +28,21 @@ export const useYoutubeCloneState = () => {
   const themeOptions = [
     {
       id: 'lightTheme',
-      name: '預設主題',
+      name: t('theme:lightTheme'),
     },
     {
       id: 'darkTheme',
-      name: '深色主題',
+      name: t('theme:darkTheme'),
     },
   ];
   const languageOptions = [
     {
       id: 'en',
-      zhHant: '英文',
-      en: 'English',
+      name: t('langauge:english'),
     },
     {
       id: 'zh-Hant',
-      zhHant: '中文',
-      en: 'Traditional Chinese',
+      name: t('langauge:zhHant'),
     },
   ];
   const currentTheme = customeTheme[themeType];

@@ -5,7 +5,21 @@ export default {
     subscriptions: 'Subscriptions',
     library: 'Library',
     history: 'History',
-    watchlater: 'Watch later',
-    likedvideos: 'Liked videos',
+    watchLater: 'Watch later',
+    likedVideos: 'Liked videos',
+  },
+  dropdown: {
+    manageYourAccount: 'Manage your Google Account',
+    customTheme: 'Custom Theme',
+    language: 'Language',
+    notifications: 'Notifications',
+  },
+  langauge: {
+    english: 'English',
+    zhHant: 'Traditional Chinese',
+  },
+  theme: {
+    lightTheme: 'Light theme',
+    darkTheme: 'Dark theme',
   },
 };
