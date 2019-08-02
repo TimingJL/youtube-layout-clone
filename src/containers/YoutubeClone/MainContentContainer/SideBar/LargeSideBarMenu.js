@@ -40,7 +40,7 @@ const LargeSideBarMenu = ({
   selectedMenuItem,
   handleOnClick,
 }) => {
-  const { t } = useTranslation('translations');
+  const { t } = useTranslation('sidebar');
   return (
     <>
       <MenuContainer>
@@ -50,29 +50,29 @@ const LargeSideBarMenu = ({
         </MenuItem>
         <MenuItem data-menu-item="trending" onClick={handleOnClick} isSelected={isSelected('trending', selectedMenuItem)}>
           <i className="fab fa-hotjar sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">發燒影片</div>
+          <div className="sidebar-menu__menu-item-text">{t('trending')}</div>
         </MenuItem>
         <MenuItem data-menu-item="subscriptions" onClick={handleOnClick} isSelected={isSelected('subscriptions', selectedMenuItem)}>
           <i className="fab fa-youtube sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">訂閱內容</div>
+          <div className="sidebar-menu__menu-item-text">{t('subscriptions')}</div>
         </MenuItem>
       </MenuContainer>
       <MenuContainer>
         <MenuItem data-menu-item="library" onClick={handleOnClick} isSelected={isSelected('library', selectedMenuItem)}>
           <i className="fas fa-folder sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">媒體庫</div>
+          <div className="sidebar-menu__menu-item-text">{t('library')}</div>
         </MenuItem>
         <MenuItem data-menu-item="history" onClick={handleOnClick} isSelected={isSelected('history', selectedMenuItem)}>
           <i className="fas fa-history sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">觀看紀錄</div>
+          <div className="sidebar-menu__menu-item-text">{t('history')}</div>
         </MenuItem>
         <MenuItem data-menu-item="watch-later" onClick={handleOnClick} isSelected={isSelected('watch-later', selectedMenuItem)}>
           <i className="fas fa-clock sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">稍後觀看</div>
+          <div className="sidebar-menu__menu-item-text">{t('watchlater')}</div>
         </MenuItem>
         <MenuItem data-menu-item="liked-video" onClick={handleOnClick} isSelected={isSelected('liked-video', selectedMenuItem)}>
           <i className="fas fa-thumbs-up sidebar-menu__menu-item-icon" />
-          <div className="sidebar-menu__menu-item-text">喜歡的影片</div>
+          <div className="sidebar-menu__menu-item-text">{t('likedvideos')}</div>
         </MenuItem>
       </MenuContainer>
     </>
