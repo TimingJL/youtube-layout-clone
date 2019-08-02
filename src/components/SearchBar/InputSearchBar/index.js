@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const SearchBarContainer = styled.div`
   flex: 1 1 auto;
@@ -48,15 +49,18 @@ const SearchBarContainer = styled.div`
   }
 `;
 
-const InputSearchBar = () => (
-  <SearchBarContainer>
-    <div className="search-bar__search-input-box-wrapper">
-      <input placeholder="搜尋" className="search-bar__search-input-box" />
-    </div>
-    <div className="search-bar__button-wrapper">
-      <i className="fas fa-search search-bar__search-icon" />
-    </div>
-  </SearchBarContainer>
-);
+const InputSearchBar = () => {
+  const { t } = useTranslation('navigationbar');
+  return (
+    <SearchBarContainer>
+      <div className="search-bar__search-input-box-wrapper">
+        <input placeholder={t('search')} className="search-bar__search-input-box" />
+      </div>
+      <div className="search-bar__button-wrapper">
+        <i className="fas fa-search search-bar__search-icon" />
+      </div>
+    </SearchBarContainer>
+  );
+};
 
 export default InputSearchBar;

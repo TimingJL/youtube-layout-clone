@@ -22,4 +22,7 @@ export default {
     lightTheme: 'Light theme',
     darkTheme: 'Dark theme',
   },
+  navigationbar: {
+    search: 'Search',
+  },
 };
