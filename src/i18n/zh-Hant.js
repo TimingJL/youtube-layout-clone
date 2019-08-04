@@ -21,6 +21,7 @@ export default {
   theme: {
     lightTheme: '預設主題',
     darkTheme: '深色主題',
+    sakuraTheme: '櫻花主題',
   },
   navigationbar: {
     search: '搜尋',

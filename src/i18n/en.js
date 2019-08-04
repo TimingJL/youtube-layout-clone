@@ -21,6 +21,7 @@ export default {
   theme: {
     lightTheme: 'Light theme',
     darkTheme: 'Dark theme',
+    sakuraTheme: 'Sakura theme',
   },
   navigationbar: {
     search: 'Search',

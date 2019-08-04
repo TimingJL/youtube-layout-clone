@@ -40,6 +40,7 @@ const RowContainer = styled.div`
   .row-wrappper__title {
     font-weight: 500;
     line-height: 26px;
+    color: ${(props) => props.theme.dropdown.color};
   }
   .row-wrappper__date {
     color: #606060;

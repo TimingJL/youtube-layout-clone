@@ -36,11 +36,13 @@ const MenuContentContainer = styled.div`
   .menu-content__profile-name {
     font-size: 16px;
     font-weight: 600;
+    color: ${(props) => props.theme.dropdown.headerColor};
   }
   .menu-content__profile-email {
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5rem;
+    color: ${(props) => props.theme.dropdown.headerColor};
   }
   .menu-content__profile-management {
     font-size: 14px;

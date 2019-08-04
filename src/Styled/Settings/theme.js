@@ -18,6 +18,7 @@ export const lightTheme = {
     background: '#ffffff',
     headerBackground: '#eeeeee',
     color: '#3f3f3f',
+    headerColor: '#282828',
     iconColor: '#a2a2a2',
     dateColor: '#606060',
     itemHoverBackground: '#e8e8e8',
@@ -55,6 +56,7 @@ export const darkTheme = {
     background: '#252525',
     headerBackground: '#4f4e50',
     color: '#ffffff',
+    headerColor: '#ffffff',
     dateColor: '#aaaaaa',
     iconColor: '#909090',
     itemHoverBackground: '#403f40',
@@ -74,6 +76,44 @@ export const darkTheme = {
     background: '#121212',
     borderColor: '#2a2a2a',
     cardTextColor: '#aaaaaa',
+  },
+};
+
+export const sakuraTheme = {
+  navbar: {
+    color: '#ffffff',
+    background: '#ff7f97',
+    buttonBackground: '#ffffff14',
+    buttonHoverBackground: '#ffffff24',
+    iconColor: '#ffffff',
+    menuBackgroundColor: '#ffffff',
+    inputBoxBackgroundColor: '#ffffff',
+    inputBoxBorderColor: '#ffa6b7',
+  },
+  dropdown: {
+    background: '#ffffff',
+    headerBackground: '#ffa6b7',
+    color: '#ff6b87',
+    headerColor: '#ff6b87',
+    dateColor: '#ff6b87',
+    iconColor: '#ff6b87',
+    itemHoverBackground: '#fff4f6',
+    borderColor: '#ffa6b7',
+  },
+  sidebar: {
+    color: '#ffa6b7',
+    largeMenuColor: '#ffa6b7',
+    background: '#ffffff',
+    iconColor: '#ffa6b7',
+    iconActiveColor: '#ffa6b7',
+    iconBackgroundHover: '#ff6b872b',
+    iconBackgroundActive: '#ffcdd7',
+  },
+  mainContent: {
+    color: '#ff6b87',
+    background: '#fff4f6',
+    borderColor: '#ffa6b7',
+    cardTextColor: '#cc9ea7',
   },
 };
 

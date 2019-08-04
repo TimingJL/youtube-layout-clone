@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next';
 import {
   lightTheme,
   darkTheme,
+  sakuraTheme,
 } from 'Styled/Settings/theme';
 
 // Context
 export const YoutubeCloneContext = createContext();
 export const useYoutubeCloneState = () => {
-  const [themeType, setThemeType] = useState('lightTheme');
+  // const [themeType, setThemeType] = useState('lightTheme');
+  const [themeType, setThemeType] = useState('sakuraTheme');
   const [isNavSearchBar, setIsNavSearchBar] = useState(false);
   const [isExtendMenu, setIsExtendMenu] = useState(false);
   const [isExtendFloatMenu, setIsExtendFloatMenu] = useState(false);
@@ -24,6 +26,7 @@ export const useYoutubeCloneState = () => {
   const customeTheme = {
     lightTheme,
     darkTheme,
+    sakuraTheme,
   };
   const themeOptions = [
     {
@@ -34,7 +37,12 @@ export const useYoutubeCloneState = () => {
       id: 'darkTheme',
       name: t('theme:darkTheme'),
     },
+    {
+      id: 'sakuraTheme',
+      name: t('theme:sakuraTheme'),
+    },
   ];
+
   const languageOptions = [
     {
       id: 'en',
