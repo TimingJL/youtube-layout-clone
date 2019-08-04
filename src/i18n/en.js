@@ -16,7 +16,8 @@ export default {
   },
   langauge: {
     english: 'English',
-    zhHant: 'Traditional Chinese',
+    zhHant: '中文(繁體)',
+    ja: '日本語',
   },
   theme: {
     lightTheme: 'Light theme',

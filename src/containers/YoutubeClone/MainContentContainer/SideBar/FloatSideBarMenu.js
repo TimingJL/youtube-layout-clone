@@ -13,6 +13,7 @@ import LargeSideBarMenu from './LargeSideBarMenu';
 const HeaderContainer = styled.div`
   display: flex;
   height: 57px;
+  color: ${(props) => props.theme.sidebar.color};
   border-bottom: 1px solid ${(props) => props.theme.dropdown.borderColor};
   .header-container__icon-wrapper {
     padding: 0px 16px;

@@ -9,8 +9,7 @@ import {
 // Context
 export const YoutubeCloneContext = createContext();
 export const useYoutubeCloneState = () => {
-  // const [themeType, setThemeType] = useState('lightTheme');
-  const [themeType, setThemeType] = useState('sakuraTheme');
+  const [themeType, setThemeType] = useState('lightTheme');
   const [isNavSearchBar, setIsNavSearchBar] = useState(false);
   const [isExtendMenu, setIsExtendMenu] = useState(false);
   const [isExtendFloatMenu, setIsExtendFloatMenu] = useState(false);
@@ -51,6 +50,10 @@ export const useYoutubeCloneState = () => {
     {
       id: 'zh-Hant',
       name: t('langauge:zhHant'),
+    },
+    {
+      id: 'ja',
+      name: t('langauge:ja'),
     },
   ];
   const currentTheme = customeTheme[themeType];

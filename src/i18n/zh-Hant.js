@@ -15,8 +15,9 @@ export default {
     notifications: '通知',
   },
   langauge: {
-    english: '英文',
-    zhHant: '繁體中文',
+    english: 'English',
+    zhHant: '中文(繁體)',
+    ja: '日本語',
   },
   theme: {
     lightTheme: '預設主題',
