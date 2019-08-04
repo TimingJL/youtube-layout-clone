@@ -25,4 +25,11 @@ export default {
   navigationbar: {
     search: '搜尋',
   },
+  mainContent: {
+    view: '觀看次數: {{count}}次',
+    view_plural: '觀看次數: {{count}}次',
+    day: '{{count}}天前',
+    day_plural: '{{count}}天前',
+    subscribe: '訂閱',
+  },
 };

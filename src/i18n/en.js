@@ -25,4 +25,11 @@ export default {
   navigationbar: {
     search: 'Search',
   },
+  mainContent: {
+    view: '{{count}} view',
+    view_plural: '{{count}} views',
+    day: '{{count}} day ago',
+    day_plural: '{{count}} days ago',
+    subscribe: 'SUBSCRIBE',
+  },
 };

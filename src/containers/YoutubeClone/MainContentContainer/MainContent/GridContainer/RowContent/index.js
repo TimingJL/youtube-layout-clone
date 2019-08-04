@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import { findAttributeInEvent } from 'utils/event';
 import VideoCard from './VideoCard';
 
@@ -46,7 +47,7 @@ const RowContentContainer = styled.div`
     align-items: center;
   }
   .row-content__record-button {
-    width: 107px;
+    padding: 0px 15px;
     height: 40px;
     color: white;
     background: #cc0000;
@@ -131,6 +132,7 @@ const RowContentContainer = styled.div`
 const RowContent = ({
   mainContentWidth,
 }) => {
+  const { t } = useTranslation('mainContent');
   const [caret, setCaret] = useState('left');
   const [translateX, setTranslateX] = useState(0);
   const handleOnClickCaret = useCallback((event) => {
@@ -148,7 +150,13 @@ const RowContent = ({
           <div>木曜4超玩</div>
         </div>
         <div className="row-content__operation-wrapper">
-          <div className="row-content__record-button"><span>訂閱(143萬)</span></div>
+          <div className="row-content__record-button">
+            <span>
+              {t('subscribe')}
+              (143w)
+            </span>
+
+          </div>
           <i className="fas fa-times row-content__subject-info-cancel-icon" />
         </div>
       </div>

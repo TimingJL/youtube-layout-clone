@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const VideoCardContainer = styled.div`
   .video-card__card-image {
@@ -24,17 +25,26 @@ const VideoCardContainer = styled.div`
 
 const VideoCard = ({
   data,
-}) => (
-  <VideoCardContainer>
-    <div className="video-card__card-image" />
-    <div className="video-card__card-title">
-      {data}
-    《一日系列第一百零九集》史上最離奇!!YouBike修到一半主...
-    </div>
-    <div className="video-card__card-owner">木曜4超玩</div>
-    <div className="video-card__card-owner">觀看次數：93萬次 - 5 天前</div>
-  </VideoCardContainer>
-);
+}) => {
+  const { t } = useTranslation('mainContent');
+  return (
+    <VideoCardContainer>
+      <div className="video-card__card-image" />
+      <div className="video-card__card-title">
+        {data}
+      《一日系列第一百零九集》史上最離奇!!YouBike修到一半主...
+      </div>
+      <div className="video-card__card-owner">木曜4超玩</div>
+      <div className="video-card__card-owner">
+        {t('view', { count: 932 })}
+        {' '}
+        -
+        {' '}
+        {t('day', { count: 5 })}
+      </div>
+    </VideoCardContainer>
+  );
+};
 
 VideoCard.propTypes = {
   data: PropTypes.any,
