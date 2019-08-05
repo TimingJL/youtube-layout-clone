@@ -3,22 +3,33 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { findAttributeInEvent } from 'utils/event';
+import {
+  BREAK_POINT_GRID_XS,
+  BREAK_POINT_GRID_SM,
+  BREAK_POINT_GRID_MD,
+  BREAK_POINT_GRID_LG,
+  BREAK_POINT_GRID_XL,
+  breakpoints,
+} from 'Styled/Settings/constants';
+import {
+  getBreakPointValue,
+} from 'Styled/Settings/utils';
 import VideoCard from './VideoCard';
 
 const getTranslateX = (mainContentWidth) => {
-  if (mainContentWidth > 1312) {
+  if (mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_XL, breakpoints)) {
     return 0;
   }
-  if (mainContentWidth > 1070) {
+  if (mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_LG, breakpoints)) {
     return -214;
   }
-  if (mainContentWidth > 957) {
+  if (mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_MD, breakpoints)) {
     return -424;
   }
-  if (mainContentWidth > 670) {
+  if (mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_SM, breakpoints)) {
     return -640;
   }
-  if (mainContentWidth > 457) {
+  if (mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_XS, breakpoints)) {
     return -853;
   }
   return -853;
