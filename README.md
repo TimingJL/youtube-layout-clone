@@ -8,5 +8,6 @@ Youtube Layout Clone
 - 側邊欄選單 (SideBar menu)
 - 多國語言 (Internationalization)
 - 無限滾動捲軸（Infinite scrolling）
+- 虛擬列表(Virtual Scroll)
 
 **成果**：[Demo](https://timingjl.github.io/youtube-layout-clone)

@@ -17,31 +17,39 @@ import {
 import LoaderIcon from 'components/LoaderIcon';
 import RowContent from './RowContent';
 
+const containerWidth = {
+  xl: 1284,
+  lg: 1070,
+  md: 856,
+  sm: 642,
+  xs: 428,
+};
+
 const Container = styled.div`
   ${(props) => {
     if (props.mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_XL, breakpoints)) {
       return `
-        width: 1284px;
+        width: ${containerWidth.xl}px;
       `;
     }
     if (props.mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_LG, breakpoints)) {
       return `
-        width: 1070px;
+        width: ${containerWidth.lg}px;
       `;
     }
     if (props.mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_MD, breakpoints)) {
       return `
-        width: 856px;
+        width: ${containerWidth.md}px;
       `;
     }
     if (props.mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_SM, breakpoints)) {
       return `
-        width: 642px;
+        width: ${containerWidth.sm}px;
       `;
     }
     if (props.mainContentWidth > getBreakPointValue(BREAK_POINT_GRID_XS, breakpoints)) {
       return `
-        width: 428px;
+        width: ${containerWidth.xs}px;
       `;
     }
     return `
