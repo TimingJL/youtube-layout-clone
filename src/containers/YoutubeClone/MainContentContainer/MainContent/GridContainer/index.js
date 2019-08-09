@@ -65,10 +65,17 @@ const GridContainer = ({
 }) => (
   <Container mainContentWidth={mainContentWidth}>
     {
-      dataSource.map((item) => (
-        <RowContent key={item} mainContentWidth={mainContentWidth} />
-      ))
-    }
+        dataSource.map((data, index) => {
+          const madeKey = `${data.get('id')}-${index}`;
+          return (
+            <RowContent
+              key={madeKey}
+              mainContentWidth={mainContentWidth}
+              data={data}
+            />
+          );
+        })
+      }
     {isLoading && <LoaderIcon />}
   </Container>
 );

@@ -1,8 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { findAttributeInEvent } from 'utils/event';
+import { getSampling } from 'utils/sampling';
 import {
   BREAK_POINT_GRID_XS,
   BREAK_POINT_GRID_SM,
@@ -82,7 +84,7 @@ const RowContentContainer = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 100%;
-    background: url('https://yt3.ggpht.com/a/AGF-l7_G59IlWRNJQR0KcfTu5xzr4yHF8YxeYUedjA=s240-mo-c-c0xffffffff-rj-k-no');
+    background: url(${(props) => props.favicon});
     background-size: cover;
     margin-right: 8px;
   }
@@ -141,6 +143,7 @@ const RowContentContainer = styled.div`
 `;
 
 const RowContent = ({
+  data,
   mainContentWidth,
 }) => {
   const { t } = useTranslation('mainContent');
@@ -151,14 +154,17 @@ const RowContent = ({
     setCaret(dataCaretType);
     setTranslateX(getTranslateX(mainContentWidth));
   }, [mainContentWidth]);
-  const cards = new Array(6).fill(0).map((item, index) => index);
+  const samplingList = getSampling(6, data.get('videoList').size);
+  const cards = data.get('videoList')
+    .filter((item, index) => samplingList.indexOf(index) > -1);
+  const channelTitle = data.get('channelTitle');
 
   return (
-    <RowContentContainer caret={caret} translateX={translateX}>
+    <RowContentContainer caret={caret} translateX={translateX} favicon={data.get('favicon')}>
       <div className="row-content__subject-info-wrapper">
         <div className="row-content__subject-info-user">
           <div className="row-content__favicon" />
-          <div>木曜4超玩</div>
+          <div>{data.get('channelTitle')}</div>
         </div>
         <div className="row-content__operation-wrapper">
           <div className="row-content__record-button">
@@ -175,7 +181,7 @@ const RowContent = ({
         <div className="row-content__card-wrapper">
           {
             cards.map((card) => (
-              <VideoCard key={card} data={card} />
+              <VideoCard key={card} data={card} channelTitle={channelTitle} />
             ))
           }
         </div>
@@ -190,10 +196,12 @@ const RowContent = ({
 };
 
 RowContent.propTypes = {
+  data: PropTypes.instanceOf(Map),
   mainContentWidth: PropTypes.number,
 };
 
 RowContent.defaultProps = {
+  data: Map(),
   mainContentWidth: 0,
 };
 

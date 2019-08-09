@@ -3,12 +3,15 @@ import React, {
   useEffect, useCallback, useRef, useState, useContext,
 } from 'react';
 import styled from 'styled-components';
+import { fromJS } from 'immutable';
 import {
   HEIGHT_NAVIGATION_BAR,
 } from 'Styled/Settings/constants';
 import {
   YoutubeCloneContext,
 } from 'containers/YoutubeClone/Context';
+import { data } from 'assets/data/videos';
+import { getSampling } from 'utils/sampling';
 import GridContainer from './GridContainer';
 
 const MainContentContainer = styled.div`
@@ -20,9 +23,10 @@ const MainContentContainer = styled.div`
 `;
 
 const MainContent = () => {
+  const initSelectedData = getSampling(3, data.length);
   const mainContentRef = useRef();
+  const [dataSource, setDataSource] = useState(fromJS(data).filter((item, index) => initSelectedData.indexOf(index) > -1));
   const [mainContentWidth, setMainContentWidth] = useState(0);
-  const [dataNumber, setDataNumber] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const {
     isExtendMenu,
@@ -40,9 +44,11 @@ const MainContent = () => {
     if (scrollPos >= divHeight) {
       setIsLoading(true);
       setTimeout(() => {
-        setDataNumber((prev) => prev + 3);
+        const selectedDataIndex = getSampling(3, data.length);
+        const selectedData = fromJS(data).filter((item, index) => selectedDataIndex.indexOf(index) > -1);
+        setDataSource((prev) => prev.concat(selectedData));
         setIsLoading(false);
-      }, 1500);
+      }, 1000);
     }
   }, []);
 
@@ -55,8 +61,6 @@ const MainContent = () => {
       window.removeEventListener('resize', handleOnResize);
     };
   }, [handleOnResize]);
-
-  const dataSource = new Array(dataNumber).fill(0).map((item, i) => i);
 
   return (
     <MainContentContainer ref={mainContentRef} onScroll={handleOnScroll}>

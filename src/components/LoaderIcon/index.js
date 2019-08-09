@@ -6,6 +6,8 @@ const LoaderIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 15px 0px;
+  font-size: 2rem;
+  opacity: 0.7;
 `;
 
 const LoaderIcon = () => (

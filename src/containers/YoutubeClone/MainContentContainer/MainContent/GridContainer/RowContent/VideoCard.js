@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { getRandom } from 'utils/sampling';
 
 const VideoCardContainer = styled.div`
   .video-card__card-image {
-    background: url('https://i.ytimg.com/vi/7OOrJESdggk/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDGj91hnIV_XBDNtv8wPhoYvywdYg');
+    background: url(${(props) => props.thumbnail});
     background-size: cover;
     width: 210px;
     height: 117px;
@@ -25,22 +26,24 @@ const VideoCardContainer = styled.div`
 
 const VideoCard = ({
   data,
+  channelTitle,
 }) => {
   const { t } = useTranslation('mainContent');
+  // debugger;
   return (
-    <VideoCardContainer>
+    <VideoCardContainer thumbnail={data.get('thumbnail')}>
       <div className="video-card__card-image" />
       <div className="video-card__card-title">
-        {data}
-      《一日系列第一百零九集》史上最離奇!!YouBike修到一半主...
+        {data.get('title').substr(0, 25)}
+        <span>...</span>
       </div>
-      <div className="video-card__card-owner">木曜4超玩</div>
+      <div className="video-card__card-owner">{channelTitle}</div>
       <div className="video-card__card-owner">
-        {t('view', { count: 932 })}
+        {t('view', { count: getRandom(100, 9999) })}
         {' '}
         -
         {' '}
-        {t('day', { count: 5 })}
+        {t('day', { count: getRandom(1, 20) })}
       </div>
     </VideoCardContainer>
   );
@@ -48,10 +51,12 @@ const VideoCard = ({
 
 VideoCard.propTypes = {
   data: PropTypes.any,
+  channelTitle: PropTypes.string,
 };
 
 VideoCard.defaultProps = {
   data: '',
+  channelTitle: '',
 };
 
 export default VideoCard;
