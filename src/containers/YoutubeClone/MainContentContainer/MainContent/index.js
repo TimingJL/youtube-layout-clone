@@ -20,6 +20,7 @@ const MainContentContainer = styled.div`
   justify-content: center;
   height: calc(100vh - ${HEIGHT_NAVIGATION_BAR}px);
   overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const MainContent = () => {
