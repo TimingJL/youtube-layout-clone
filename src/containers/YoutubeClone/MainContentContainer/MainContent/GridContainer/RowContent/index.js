@@ -162,27 +162,6 @@ const RowContentContainer = styled.div`
       left: 0px;
       transform: translateX(-50%);
     }
-    &:after {
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      border-radius: 100%;
-      background: #eee;
-      z-index: -1;
-      transform: scale(0);
-    }
-    &:active {
-      transform: scale(.9);
-      transition: 0.07s;
-      &:after {
-        width: 100%;
-        height: 100%;
-        opacity: 0.2;
-        border-radius: 100%;
-        transition: all 0.2s;
-      }
-    }
   }
 `;
 

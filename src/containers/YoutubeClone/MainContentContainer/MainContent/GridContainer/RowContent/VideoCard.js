@@ -31,7 +31,7 @@ const VideoCard = ({
   const [views] = useState(getRandom(100, 9999));
   const [days] = useState(getRandom(1, 20));
   const { t } = useTranslation('mainContent');
-  // debugger;
+
   return (
     <VideoCardContainer thumbnail={data.get('thumbnail')}>
       <div className="video-card__card-image" />
