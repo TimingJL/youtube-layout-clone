@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +28,8 @@ const VideoCard = ({
   data,
   channelTitle,
 }) => {
+  const [views] = useState(getRandom(100, 9999));
+  const [days] = useState(getRandom(1, 20));
   const { t } = useTranslation('mainContent');
   // debugger;
   return (
@@ -39,11 +41,11 @@ const VideoCard = ({
       </div>
       <div className="video-card__card-owner">{channelTitle}</div>
       <div className="video-card__card-owner">
-        {t('view', { count: getRandom(100, 9999) })}
+        {t('view', { count: views })}
         {' '}
         -
         {' '}
-        {t('day', { count: getRandom(1, 20) })}
+        {t('day', { count: days })}
       </div>
     </VideoCardContainer>
   );

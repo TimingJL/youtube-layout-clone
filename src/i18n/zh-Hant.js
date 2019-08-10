@@ -33,5 +33,6 @@ export default {
     day: '{{count}}天前',
     day_plural: '{{count}}天前',
     subscribe: '訂閱',
+    unit: '萬',
   },
 };

@@ -33,5 +33,6 @@ export default {
     day: '{{count}}時間前',
     day_plural: '{{count}}時間前',
     subscribe: 'チャンネル登録 ',
+    unit: '万',
   },
 };

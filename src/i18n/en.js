@@ -33,5 +33,6 @@ export default {
     day: '{{count}} day ago',
     day_plural: '{{count}} days ago',
     subscribe: 'SUBSCRIBE',
+    unit: 'K',
   },
 };

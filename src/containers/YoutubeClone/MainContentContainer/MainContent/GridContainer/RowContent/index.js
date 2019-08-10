@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { findAttributeInEvent } from 'utils/event';
-import { getSampling } from 'utils/sampling';
+import { getSampling, getRandom } from 'utils/sampling';
 import {
   BREAK_POINT_GRID_XS,
   BREAK_POINT_GRID_SM,
@@ -37,6 +37,20 @@ const getTranslateX = (mainContentWidth) => {
   return -853;
 };
 
+// https://codepen.io/sajran/pen/Wwyjwa?editors=0110
+const ripple = keyframes`
+  0% {
+      width: 0;
+      height: 0;
+      opacity: .5;
+  }
+  100% {
+      width: 150px;
+      height: 150px;
+      opacity: 0;
+  }
+`;
+
 const RowContentContainer = styled.div`
   position: relative;
   border-bottom: 1px solid ${(props) => props.theme.mainContent.borderColor};
@@ -59,7 +73,7 @@ const RowContentContainer = styled.div`
     display: flex;
     align-items: center;
   }
-  .row-content__record-button {
+  .row-content__subscribe-button {
     padding: 0px 15px;
     height: 40px;
     color: white;
@@ -72,6 +86,31 @@ const RowContentContainer = styled.div`
     font-weight: 500;
     margin: 0px 4px;
     border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background-color: currentColor;
+      visibility: hidden;
+      z-index: 2;
+    }
+    &:not(:active):before {
+      animation: ${ripple} .8s cubic-bezier(0, 0, .2, 1);
+      transition: visibility .4s step-end;
+    }
+    &:active:before {
+      visibility: visible;
+    }
+  }
+  .row-content__subscribe-text {
+    margin-right: 6px;
   }
   .row-content__subject-info-cancel-icon {
     width: 40px;
@@ -134,9 +173,14 @@ const RowContentContainer = styled.div`
       transform: scale(0);
     }
     &:active {
+      transform: scale(.9);
+      transition: 0.07s;
       &:after {
-        transform: scale(1);
-        transition: 0.1s ease-in-out;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        border-radius: 100%;
+        transition: all 0.2s;
       }
     }
   }
@@ -148,6 +192,7 @@ const RowContent = ({
 }) => {
   const { t } = useTranslation('mainContent');
   const [caret, setCaret] = useState('left');
+  const [subscribeNum] = useState(getRandom(10, 999));
   const [translateX, setTranslateX] = useState(0);
   const handleOnClickCaret = useCallback((event) => {
     const dataCaretType = findAttributeInEvent(event, 'data-caret-type');
@@ -167,12 +212,10 @@ const RowContent = ({
           <div>{data.get('channelTitle')}</div>
         </div>
         <div className="row-content__operation-wrapper">
-          <div className="row-content__record-button">
-            <span>
-              {t('subscribe')}
-              (143w)
-            </span>
-
+          <div className="row-content__subscribe-button">
+            <div className="row-content__subscribe-text">{t('subscribe')}</div>
+            <div>{subscribeNum}</div>
+            <div>{t('unit')}</div>
           </div>
           <i className="fas fa-times row-content__subject-info-cancel-icon" />
         </div>
