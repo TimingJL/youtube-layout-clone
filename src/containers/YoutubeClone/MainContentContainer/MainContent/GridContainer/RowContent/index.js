@@ -174,13 +174,14 @@ const RowContent = ({
   const [subscribeNum] = useState(getRandom(10, 999));
   const [translateX, setTranslateX] = useState(0);
   const [samplingList] = useState(getSampling(6, data.get('videoList').size));
+  const [cards] = useState(data.get('videoList')
+    .filter((item, index) => samplingList.indexOf(index) > -1)
+    .sort(() => Math.random() - 0.5));
   const handleOnClickCaret = useCallback((event) => {
     const dataCaretType = findAttributeInEvent(event, 'data-caret-type');
     setCaret(dataCaretType);
     setTranslateX(getTranslateX(mainContentWidth));
   }, [mainContentWidth]);
-  const cards = data.get('videoList')
-    .filter((item, index) => samplingList.indexOf(index) > -1);
   const channelTitle = data.get('channelTitle');
 
   return (
