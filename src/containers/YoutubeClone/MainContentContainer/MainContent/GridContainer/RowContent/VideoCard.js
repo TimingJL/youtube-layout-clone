@@ -8,6 +8,7 @@ const VideoCardContainer = styled.div`
   .video-card__card-image {
     background: url(${(props) => props.thumbnail});
     background-size: cover;
+    background-position: center;
     width: 210px;
     height: 117px;
   }
