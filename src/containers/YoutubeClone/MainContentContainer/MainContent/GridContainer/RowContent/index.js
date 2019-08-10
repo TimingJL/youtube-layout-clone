@@ -173,12 +173,12 @@ const RowContent = ({
   const [caret, setCaret] = useState('left');
   const [subscribeNum] = useState(getRandom(10, 999));
   const [translateX, setTranslateX] = useState(0);
+  const [samplingList] = useState(getSampling(6, data.get('videoList').size));
   const handleOnClickCaret = useCallback((event) => {
     const dataCaretType = findAttributeInEvent(event, 'data-caret-type');
     setCaret(dataCaretType);
     setTranslateX(getTranslateX(mainContentWidth));
   }, [mainContentWidth]);
-  const samplingList = getSampling(6, data.get('videoList').size);
   const cards = data.get('videoList')
     .filter((item, index) => samplingList.indexOf(index) > -1);
   const channelTitle = data.get('channelTitle');
